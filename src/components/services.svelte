@@ -5,18 +5,19 @@
 	let isInView: boolean;
 </script>
 
-<section id="services" class="mt-48" use:inview={{ unobserveOnEnter: true }}
-on:change={({ detail }) => {
-	isInView = detail.inView;
-}}>
-	{#if isInView}
-		<p class="font-bold text-[40px] text-center max-w-2xl mx-auto mb-20">
-			Everything you need for a smooth video creation
-		</p>
-		<div class="relative">
-			<div
-				class="flex space-x-16 justify-center"
-			>
+<section id="services" class="mt-48">
+	<p class="font-bold text-[40px] text-center max-w-2xl mx-auto mb-20">
+		Everything you need for a smooth video creation
+	</p>
+	<div class="relative">
+		<div
+			class="flex space-x-16 justify-center"
+			use:inview={{ unobserveOnEnter: true }}
+			on:change={({ detail }) => {
+				isInView = detail.inView;
+			}}
+		>
+			{#if isInView}
 				<div class="text-center" in:fly={{ y: 100, duration: 500 }}>
 					<img src="collaborate.png" alt="Collaborate seamlessly" class="mx-auto mb-8" />
 					<p class="font-bold text-2xl mb-2">Collaborate seamlessly</p>
@@ -46,14 +47,14 @@ on:change={({ detail }) => {
 						data-driven decisions
 					</p>
 				</div>
-			</div>
-
-			<img
-				src="bg-services.png"
-				class="-top-40 w-screen h-[650px] absolute -z-30"
-				alt="services background"
-				in:fly={{ y: 100, duration: 300 }}
-			/>
+			{/if}
 		</div>
-	{/if}
+
+		<img
+			src="bg-services.png"
+			class="-top-40 w-screen h-[650px] absolute -z-30"
+			alt="services background"
+			in:fly={{ y: 100, duration: 300 }}
+		/>
+	</div>
 </section>

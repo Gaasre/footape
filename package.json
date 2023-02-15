@@ -31,6 +31,7 @@
 	"dependencies": {
 		"@flaticon/flaticon-uicons": "^2.0.1",
 		"@fontsource/quicksand": "^4.5.12",
+		"@supabase/supabase-js": "^2.7.1",
 		"svelte-inview": "^3.0.2"
 	}
 }
