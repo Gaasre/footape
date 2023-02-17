@@ -18,28 +18,28 @@
 			}}
 		>
 			{#if isInView}
-				<div class="text-center" in:fly={{ y: 100, duration: 500 }}>
+				<div class="text-center" in:fly={{ x: -200, duration: 1500 }}>
 					<img src="collaborate.png" alt="Collaborate seamlessly" class="mx-auto mb-8" />
 					<p class="font-bold text-2xl mb-2">Collaborate seamlessly</p>
 					<p class="max-w-xs text-center font-bold text-gray/70">
 						Work together effortlessly, <br />with centralized communication <br />and resources
 					</p>
 				</div>
-				<div class="text-center" in:fly={{ y: 100, duration: 800 }}>
+				<div class="text-center" in:fly={{ x: -200, duration: 2000 }}>
 					<img src="track.png" alt="Track your progress" class="mx-auto mb-8" />
 					<p class="font-bold text-2xl mb-2">Track your progress</p>
 					<p class="max-w-xs text-center font-bold text-gray/70">
 						Visualize your workflow, <br />manage time and expenses, <br />and stay on track
 					</p>
 				</div>
-				<div class="text-center" in:fly={{ y: 100, duration: 1100 }}>
+				<div class="text-center" in:fly={{ x: 200, duration: 2000 }}>
 					<img src="simplify.png" alt="Simplify your workflow" class="mx-auto mb-8" />
 					<p class="font-bold text-2xl mb-2">Simplify your workflow</p>
 					<p class="max-w-xs text-center font-bold text-gray/70">
 						Streamline tasks and automate <br />workflows, reducing the need <br />for extra tools
 					</p>
 				</div>
-				<div class="text-center" in:fly={{ y: 100, duration: 1400 }}>
+				<div class="text-center" in:fly={{ x: 200, duration: 1500 }}>
 					<img src="analyze.png" alt="Analyze your performance" class="mx-auto mb-8" />
 					<p class="font-bold text-2xl mb-2">Analyze your performance</p>
 					<p class="max-w-xs text-center font-bold text-gray/70">
@@ -50,11 +50,13 @@
 			{/if}
 		</div>
 
-		<img
-			src="bg-services.png"
-			class="-top-40 w-screen h-[650px] absolute -z-30"
-			alt="services background"
-			in:fly={{ y: 100, duration: 300 }}
-		/>
+		{#if isInView}
+			<img
+				src="bg-services.png"
+				class="-top-40 w-screen h-[650px] absolute -z-30"
+				alt="services background"
+				in:fly={{ y: 100, duration: 1500 }}
+			/>
+		{/if}
 	</div>
 </section>

@@ -15,7 +15,7 @@
 	<div class="flex items-center mb-16">
 		<div class="w-1/2">
 			{#if sectionOneInView}
-				<div class="w-1/2 float-right" in:fly={{ y: 100, duration: 500 }}>
+				<div class="w-1/2 float-right" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Collaborate effortlessly with <br />your team</p>
 					<p class="text-dark-gray font-semibold mb-7">
 						Simplify your video creation process and <br />work more effectively with your team
@@ -52,36 +52,36 @@
 		</div>
 		<div
 			class="w-1/2 relative"
-			use:inview={{ unobserveOnEnter: true }}
+			use:inview={{ unobserveOnEnter: true, rootMargin: '20%' }}
 			on:change={({ detail }) => {
 				sectionOneInView = detail.inView;
 			}}
 		>
 			{#if sectionOneInView}
-				<img src="bg-func-blue.png" alt="" class="float-right" in:fly={{ y: 100, duration: 300 }} />
+				<img src="bg-func-blue.png" alt="" class="float-right" in:fly={{ x: 100, duration: 1000 }} />
 				<img
 					src="scriptwriter.png"
 					alt=""
 					class="absolute top-6 right-56"
-					in:fly={{ y: 100, duration: 500 }}
+					in:fly={{ y: 100, duration: 1500 }}
 				/>
 				<img
 					src="voiceover.png"
 					alt=""
 					class="absolute top-28 right-10"
-					in:fly={{ y: 100, duration: 800 }}
+					in:fly={{ y: 100, duration: 1500 }}
 				/>
 				<img
 					src="videoeditor.png"
 					alt=""
 					class="absolute bottom-40 right-48"
-					in:fly={{ y: 100, duration: 1100 }}
+					in:fly={{ y: 100, duration: 2000 }}
 				/>
 				<img
 					src="channelmanager.png"
 					alt=""
 					class="absolute bottom-10 right-20"
-					in:fly={{ y: 100, duration: 1400 }}
+					in:fly={{ y: 100, duration: 2200 }}
 				/>
 			{/if}
 		</div>
@@ -89,30 +89,30 @@
 	<div class="flex items-center mb-16">
 		<div
 			class="w-1/2 relative"
-			use:inview={{ unobserveOnEnter: true }}
+			use:inview={{ unobserveOnEnter: true, rootMargin: '20%' }}
 			on:change={({ detail }) => {
 				sectionTwoInView = detail.inView;
 			}}
 		>
 			{#if sectionTwoInView}
-				<img src="bg-func-red.png" alt="" class="float-left" in:fly={{ y: 100, duration: 300 }} />
+				<img src="bg-func-red.png" alt="" class="float-left" in:fly={{ x: -100, duration: 1000 }} />
 				<img
 					src="voice-col.png"
 					alt=""
 					class="absolute top-0 left-64"
-					in:fly={{ y: 100, duration: 500 }}
+					in:fly={{ x: 100, duration: 1000 }}
 				/>
 				<img
 					src="card.png"
 					alt=""
 					class="absolute bottom-20 left-6"
-					in:fly={{ y: 100, duration: 800 }}
+					in:fly={{ y: 100, duration: 1400 }}
 				/>
 			{/if}
 		</div>
 		<div class="w-1/2">
 			{#if sectionTwoInView}
-				<div class="w-1/2 float-left" in:fly={{ y: 100, duration: 500 }}>
+				<div class="w-1/2 float-left" in:fly={{ x: 300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Stay on track with easy <br />workflow management</p>
 					<p class="text-dark-gray font-semibold mb-7">
 						With the platform's kanban board, you can easily <br />visualize your video creation
@@ -142,7 +142,7 @@
 	<div class="flex items-center mb-16">
 		<div class="w-1/2">
 			{#if sectionThreeInView}
-				<div class="w-1/2 float-right" in:fly={{ y: 100, duration: 500 }}>
+				<div class="w-1/2 float-right" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Simplify your video creation <br />process</p>
 					<p class="text-dark-gray font-semibold mb-7">
 						Simplify your workflow and ditch multiple tools and <br />platforms. With the platform,
@@ -171,7 +171,7 @@
 		</div>
 		<div
 			class="w-1/2 relative"
-			use:inview={{ unobserveOnEnter: true }}
+			use:inview={{ unobserveOnEnter: true, rootMargin: '20%' }}
 			on:change={({ detail }) => {
 				sectionThreeInView = detail.inView;
 			}}
@@ -181,13 +181,13 @@
 					src="bg-func-green.png"
 					alt=""
 					class="float-right"
-					in:fly={{ y: 100, duration: 500 }}
+					in:fly={{ x: 100, duration: 1000 }}
 				/>
 				<img
 					src="allvideos.png"
 					alt=""
 					class="absolute top-20 right-1"
-					in:fly={{ y: 100, duration: 800 }}
+					in:fly={{ y: 100, duration: 1500 }}
 				/>
 			{/if}
 		</div>
@@ -195,7 +195,7 @@
 	<div class="flex items-center mb-16">
 		<div
 			class="w-1/2 relative"
-			use:inview={{ unobserveOnEnter: true }}
+			use:inview={{ unobserveOnEnter: true, rootMargin: '20%' }}
 			on:change={({ detail }) => {
 				sectionFourInView = detail.inView;
 			}}
@@ -205,37 +205,37 @@
 					src="bg-func-yellow.png"
 					alt=""
 					class="float-left"
-					in:fly={{ y: 100, duration: 500 }}
+					in:fly={{ x: -100, duration: 1000 }}
 				/>
 				<img
 					src="dashboard-outline.png"
 					alt=""
 					class="absolute top-16 left-32"
-					in:fly={{ y: 100, duration: 800 }}
+					in:fly={{ y: 100, duration: 1500 }}
 				/>
 				<img
 					src="cpv.png"
 					alt=""
 					class="absolute top-4 left-80"
-					in:fly={{ y: 100, duration: 1100 }}
+					in:fly={{ y: 100, duration: 1500 }}
 				/>
 				<img
 					src="tpv.png"
 					alt=""
 					class="absolute top-36 left-20"
-					in:fly={{ y: 100, duration: 1400 }}
+					in:fly={{ y: 100, duration: 2000 }}
 				/>
 				<img
 					src="vtm.png"
 					alt=""
 					class="absolute bottom-4 left-72"
-					in:fly={{ y: 100, duration: 1700 }}
+					in:fly={{ y: 100, duration: 2000 }}
 				/>
 			{/if}
 		</div>
 		<div class="w-1/2">
-			{#if sectionThreeInView}
-				<div class="w-1/2 float-left" in:fly={{ y: 100, duration: 500 }}>
+			{#if sectionFourInView}
+				<div class="w-1/2 float-left" in:fly={{ x: 300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">
 						Gain insights into your video <br />creation process
 					</p>

@@ -122,18 +122,18 @@
 	>
 		{#if isInView}
 			<div
-				in:fly={{ y: 100, duration: 500 }}
+				in:fly={{ y: 100, duration: 1000 }}
 				class="w-[calc(100%-100px)] h-24 bg-white/60 rounded-2xl shadow-lg absolute -z-10 -top-10 left-0 right-0 mx-auto"
 			/>
 			<img
-				in:fly={{ y: 100, duration: 1000 }}
+				in:fly={{ y: 100, duration: 1500 }}
 				src="dashboard.png"
 				width="100%"
 				alt="dashboard"
 				class="rounded-2xl border-8 border-white shadow-lg z-10 mb-9"
 			/>
 			<img
-				in:fly={{ y: 100, duration: 500 }}
+				in:fly={{ y: 100, duration: 2000 }}
 				src="green-vector.png"
 				alt="Green Vector"
 				class="absolute -right-20 -z-20 -top-24"
@@ -142,13 +142,13 @@
 	</div>
 	{#if isInView}
 		<img
-			in:fly={{ y: 100, duration: 500 }}
+			in:fly={{ y: 100, duration: 1000 }}
 			src="red-vector.png"
 			alt="Red Vector"
 			class="absolute left-0 top-80"
 		/>
 		<img
-			in:fly={{ y: 100, duration: 500 }}
+			in:fly={{ y: 100, duration: 1500 }}
 			src="blue-vector.png"
 			alt="Blue Vector"
 			class="absolute right-0 top-16"
