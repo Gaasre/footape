@@ -8,7 +8,7 @@
 	let sectionFourInView: boolean;
 </script>
 
-<section id="features" class="mt-32">
+<section id="features" class="mt-32 overflow-hidden">
 	<p class="font-bold text-[40px] text-center max-w-lg mx-auto mb-20">
 		The only tool designed for video creation
 	</p>
@@ -17,14 +17,14 @@
 			{#if sectionOneInView}
 				<div class="w-1/2 float-right" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Collaborate effortlessly with <br />your team</p>
-					<p class="text-dark-gray font-semibold mb-7">
+					<p class="mb-7">
 						Simplify your video creation process and <br />work more effectively with your team
 					</p>
-					<ul class="space-y-5 text-dark-gray font-semibold">
+					<ul class="space-y-5">
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-chart-network mt-0.5 text-blue text-xl" />
+							<i class="fi fi-br-chart-network mt-0.5 text-info text-xl" />
 							<p>
-								With a <span class="text-blue font-bold">centralized platform</span> for
+								With a <span class="text-info font-bold">centralized platform</span> for
 								communication
 								<br />and resource sharing, your team can
 								<br />
@@ -32,16 +32,16 @@
 							</p>
 						</li>
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-cloud-share mt-0.5 text-blue text-xl" />
+							<i class="fi fi-br-cloud-share mt-0.5 text-info text-xl" />
 							<p>
-								<span class="text-blue font-bold">Submit</span> video scripts, voice-overs, videos
+								<span class="text-info font-bold">Submit</span> video scripts, voice-overs, videos
 								and<br /> any other resource directly on the platform
 							</p>
 						</li>
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-comment-check mt-0.5 text-blue text-xl" />
+							<i class="fi fi-br-comment-check mt-0.5 text-info text-xl" />
 							<p>
-								<span class="text-blue font-bold">Get feedback</span> and stay in sync with your
+								<span class="text-info font-bold">Get feedback</span> and stay in sync with your
 								team,
 								<br />all in one place
 							</p>
@@ -114,23 +114,23 @@
 			{#if sectionTwoInView}
 				<div class="w-1/2 float-left" in:fly={{ x: 300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Stay on track with easy <br />workflow management</p>
-					<p class="text-dark-gray font-semibold mb-7">
+					<p class="mb-7">
 						With the platform's kanban board, you can easily <br />visualize your video creation
 						process and track your <br />progress from start to finish
 					</p>
-					<ul class="space-y-5 text-dark-gray font-semibold">
+					<ul class="space-y-5">
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-list-check mt-0.5 text-red text-xl" />
+							<i class="fi fi-br-list-check mt-0.5 text-error text-xl" />
 							<p>
-								<span class="text-red font-bold">Know exactly</span> which stage each video is in
+								<span class="text-error font-bold">Know exactly</span> which stage each video is in
 								and
 								<br />who is responsible for each step
 							</p>
 						</li>
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-time-check mt-0.5 text-red text-xl" />
+							<i class="fi fi-br-time-check mt-0.5 text-error text-xl" />
 							<p>
-								<span class="text-red font-bold">Keep track</span> of time taken and expenses
+								<span class="text-error font-bold">Keep track</span> of time taken and expenses
 								incurred, <br />and get a clear understanding of any delays
 							</p>
 						</li>
@@ -144,24 +144,24 @@
 			{#if sectionThreeInView}
 				<div class="w-1/2 float-right" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Simplify your video creation <br />process</p>
-					<p class="text-dark-gray font-semibold mb-7">
+					<p class="mb-7">
 						Simplify your workflow and ditch multiple tools and <br />platforms. With the platform,
 						you can have <br />everything you need in one place
 					</p>
-					<ul class="space-y-5 text-dark-gray font-semibold">
+					<ul class="space-y-5">
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-comment-check mt-0.5 text-green text-xl" />
+							<i class="fi fi-br-comment-check mt-0.5 text-success text-xl" />
 							<p>
-								You can <span class="text-green font-bold">easily manage</span> tasks, deadlines,
+								You can <span class="text-success font-bold">easily manage</span> tasks, deadlines,
 								and
 								<br />resources all in one location
 							</p>
 						</li>
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-play-alt mt-0.5 text-green text-xl" />
+							<i class="fi fi-br-play-alt mt-0.5 text-success text-xl" />
 							<p>
 								The platform's workflow is designed specifically <br />for
-								<span class="text-green font-bold">YouTube videos</span>, making it easy to get
+								<span class="text-success font-bold">YouTube videos</span>, making it easy to get
 								<br />started with your video creation process
 							</p>
 						</li>
@@ -192,7 +192,7 @@
 			{/if}
 		</div>
 	</div>
-	<div class="flex items-center mb-16">
+	<div class="flex items-center pb-20">
 		<div
 			class="w-1/2 relative"
 			use:inview={{ unobserveOnEnter: true, rootMargin: '20%' }}
@@ -239,22 +239,22 @@
 					<p class="text-2xl font-bold mb-5">
 						Gain insights into your video <br />creation process
 					</p>
-					<p class="text-dark-gray font-semibold mb-7">
+					<p class="mb-7">
 						With the platform's analytics, you can analyze the <br />video creation process over
 						time
 					</p>
-					<ul class="space-y-5 text-dark-gray font-semibold">
+					<ul class="space-y-5">
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-list-check mt-0.5 text-yellow text-xl" />
+							<i class="fi fi-br-list-check mt-0.5 text-warning text-xl" />
 							<p>
-								<span class="text-yellow font-bold">Track time</span> taken for each step of the process,
+								<span class="text-warning font-bold">Track time</span> taken for each step of the process,
 								see expenses incurred, and keep track of any delays
 							</p>
 						</li>
 						<li class="flex space-x-10 items-center">
-							<i class="fi fi-br-time-check mt-0.5 text-yellow text-xl" />
+							<i class="fi fi-br-time-check mt-0.5 text-warning text-xl" />
 							<p>
-								<span class="text-yellow font-bold">Use the data</span> provided to identify areas of
+								<span class="text-warning font-bold">Use the data</span> provided to identify areas of
 								improvement and optimize your video creation process
 							</p>
 						</li>

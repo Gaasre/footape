@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "env-cmd vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -15,10 +15,12 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"autoprefixer": "^10.4.7",
+		"env-cmd": "^10.1.0",
 		"postcss": "^8.4.14",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"supabase": "^1.38.7",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"svelte-preprocess": "^4.10.7",
@@ -29,9 +31,20 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@aws-sdk/types": "^3.289.0",
 		"@flaticon/flaticon-uicons": "^2.0.1",
 		"@fontsource/quicksand": "^4.5.12",
+		"@supabase/auth-helpers-sveltekit": "^0.8.7",
 		"@supabase/supabase-js": "^2.7.1",
-		"svelte-inview": "^3.0.2"
+		"@types/chart.js": "^2.9.37",
+		"aws-sdk": "^2.1333.0",
+		"axios": "^1.3.4",
+		"chart.js": "^4.2.1",
+		"daisyui": "^2.51.0",
+		"moment": "^2.29.4",
+		"stripe": "^11.15.0",
+		"svelte-dnd-action": "^0.9.22",
+		"svelte-inview": "^3.0.2",
+		"uniqolor": "^1.1.0"
 	}
 }

@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/auth-helpers-sveltekit'
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
