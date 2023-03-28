@@ -111,25 +111,6 @@
 					<button on:click={() => selectWorkflow(index)} class="btn btn-ghost btn-xs"
 						>Details</button
 					>
-
-					{#if workflowVisible && data[selectedVideo].id == video.id}
-						<div
-							in:fly={{ x: 20 }}
-							out:fly={{ x: 20 }}
-							class="bg-base-300 w-fit rounded-lg p-4 shadow-xl absolute bottom-2 right-2 z-10"
-						>
-							<div class="mb-4 flex items-center">
-								<button
-									class="btn btn-ghost btn-xs btn-circle"
-									on:click={() => (workflowVisible = false)}
-								>
-									<i class="fi fi-br-cross-small" />
-								</button>
-								<h2 class="font-bold text-center grow">Workflow</h2>
-							</div>
-							<WorkflowCalendar {video} />
-						</div>
-					{/if}
 				</td>
 				<td>
 					{#if checkPermission($page.data.fullUser?.permissions, Section.Videos, Action.Edit, $page.data.fullUser?.position)}
@@ -152,6 +133,21 @@
 		{/each}
 	</tbody>
 </table>
+{#if workflowVisible}
+	<div
+		in:fly={{ x: 20 }}
+		out:fly={{ x: 20 }}
+		class="absolute top-0 my-16 mx-8 right-0 w-fit h-auto rounded-lg bg-base-300 shadow-lg z-10 p-6"
+	>
+		<div class="mb-4 flex items-center">
+			<button class="btn btn-ghost btn-xs btn-circle" on:click={() => (workflowVisible = false)}>
+				<i class="fi fi-br-cross-small" />
+			</button>
+			<h2 class="font-bold text-center grow">Workflow</h2>
+		</div>
+		<WorkflowCalendar video={data[selectedVideo]} />
+	</div>
+{/if}
 <EditVideo
 	onClose={() => (editVisible = false)}
 	visible={editVisible}
