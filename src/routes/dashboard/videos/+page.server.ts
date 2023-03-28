@@ -6,7 +6,7 @@ import { error, fail, redirect, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 const canAddVideo = (subscription: string | undefined, video_count: number | undefined) => {
-    if (!video_count) return false
+    if (video_count == null) return false
     switch (subscription) {
         case 'starter':
             if (video_count >= 10) {

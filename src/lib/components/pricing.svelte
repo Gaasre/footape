@@ -126,8 +126,33 @@
 					<span><b class="text-white">Chat</b> support</span>
 				</p> -->
 				</div>
-				{#if pricingPlan.name.toLowerCase() != ($page.data.fullUser?.subscription ?? '').toLowerCase()}
-					{#if $page.data.fullUser?.subscription}
+				{#if $page.data.fullUser?.position == 'Owner'}
+					{#if pricingPlan.name.toLowerCase() != ($page.data.fullUser?.subscription ?? '').toLowerCase()}
+						{#if $page.data.fullUser?.subscription}
+							<form
+								method="POST"
+								action={`/dashboard/profile?/portal`}
+								class="space-y-4"
+								use:enhance={() => {
+									return async ({ result, update }) => {
+										update({ reset: false });
+									};
+								}}
+							>
+								<button class="btn btn-ghost btn-outline w-full">Change subscription</button>
+							</form>
+						{:else}
+							<button
+								on:click={() =>
+									checkout(
+										plan ? pricingPlan.annualPriceId : pricingPlan.monthlyPriceId,
+										pricingPlan.hasTrial
+									)}
+								class="btn btn-ghost btn-outline w-full"
+								>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
+							>
+						{/if}
+					{:else}
 						<form
 							method="POST"
 							action={`/dashboard/profile?/portal`}
@@ -138,29 +163,9 @@
 								};
 							}}
 						>
-							<button class="btn btn-ghost btn-outline w-full">Change subscription</button>
+							<button class="btn btn-ghost btn-outline w-full">Manage</button>
 						</form>
-					{:else}
-						<button
-							on:click={() =>
-								checkout(plan ? pricingPlan.annualPriceId : pricingPlan.monthlyPriceId, pricingPlan.hasTrial)}
-							class="btn btn-ghost btn-outline w-full"
-							>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
-						>
 					{/if}
-				{:else}
-					<form
-						method="POST"
-						action={`/dashboard/profile?/portal`}
-						class="space-y-4"
-						use:enhance={() => {
-							return async ({ result, update }) => {
-								update({ reset: false });
-							};
-						}}
-					>
-						<button class="btn btn-ghost btn-outline w-full">Manage</button>
-					</form>
 				{/if}
 			</div>
 		{/each}

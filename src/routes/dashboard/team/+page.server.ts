@@ -6,7 +6,7 @@ import { checkPermission } from '$lib/utils';
 import { Action, Section } from '$lib/enums';
 
 const canInviteMembers = (subscription: string | undefined, member_count: number | undefined) => {
-    if (!member_count) return false
+    if (member_count == null) return false
     switch (subscription) {
         case 'starter':
             if (member_count >= 5) {

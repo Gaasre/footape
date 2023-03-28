@@ -38,21 +38,23 @@
 			<p class="badge badge-warning capitalize mb-4">
 				{$page.data.fullUser?.subscription} subscription
 			</p>
-			<form
-				method="POST"
-				action={`?/portal`}
-				class="space-y-4"
-				use:enhance={({ form }) => {
-					return async ({ result, update }) => {
-						if (result.type === 'error') {
-							await applyAction(result);
-						}
-						update({ reset: false });
-					};
-				}}
-			>
-				<button class="btn btn-ghost">Manage subscription</button>
-			</form>
+			{#if $page.data.fullUser?.position == 'Owner'}
+				<form
+					method="POST"
+					action={`?/portal`}
+					class="space-y-4"
+					use:enhance={({ form }) => {
+						return async ({ result, update }) => {
+							if (result.type === 'error') {
+								await applyAction(result);
+							}
+							update({ reset: false });
+						};
+					}}
+				>
+					<button class="btn btn-ghost">Manage subscription</button>
+				</form>
+			{/if}
 		</div>
 	</div>
 	<div>
