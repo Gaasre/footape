@@ -46,6 +46,7 @@ export const actions = ({
     },
     portal: async ({ locals, request, url }) => {
         if (!locals.fullUser?.customerid) return fail(422)
+        if (locals.fullUser?.position != 'Owner') return redirect(301, '/dashboard/profile')
 
         if (import.meta.env.VITE_BASE_URL == 'http//localhost:5173') {
             throw redirect(301, 'https://billing.stripe.com/p/login/test_3cseVq8FCaqB13ycMM')
