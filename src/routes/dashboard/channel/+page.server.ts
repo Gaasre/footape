@@ -6,7 +6,7 @@ import { error, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 
 const canAddChannel = (subscription: string | undefined, channel_count: number | undefined) => {
-    if (!channel_count) return false
+    if (channel_count == null) return false
     switch (subscription) {
         case 'starter':
             if (channel_count >= 1) {
@@ -31,6 +31,7 @@ export const load = (async () => {
 
 export const actions = ({
     newChannel: async ({ locals, request }) => {
+        console.log(locals.fullUser)
         if (!locals.session?.user) throw redirect(301, '/');
         if (!checkPermission(locals.fullUser?.permissions, Section.Videos, Action.Delete, locals.fullUser?.position)) throw error(401)
         if (!canAddChannel(locals.fullUser?.subscription, locals.fullUser?.channel_count)) {

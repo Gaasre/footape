@@ -12,9 +12,13 @@ export const load = (async ({ locals }) => {
             throw redirect(301, '/permission_error')
         }
     }
+    if (locals.fullUser?.firstname == '' && locals.fullUser.lastname == '') {
+        throw redirect(301, '/onboarding')
+    }
     const { data: channels } = await supabase
         .from('channel')
         .select('id, name')
+        .eq('teamid', locals.fullUser.teamid)
         .returns<Channel[]>()
     return { channels };
 }) satisfies LayoutServerLoad;
