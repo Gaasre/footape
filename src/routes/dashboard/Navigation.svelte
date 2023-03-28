@@ -100,10 +100,12 @@
 				<i class={`fi ${item.icon} mt-1 mx-auto sm:mx-0`} />
 				<span class="sm:inline hidden">{item.name}</span>
 
-				{#if !checkPermission($page.data.fullUser?.permissions, item.name, Action.View, $page.data.fullUser?.position)}
-					<div class="badge badge-error badge-sm gap-2">
-						<i class="fi fi-br-lock mt-1" />
-					</div>
+				{#if item.name != Section.Workflow}
+					{#if !checkPermission($page.data.fullUser?.permissions, item.name, Action.View, $page.data.fullUser?.position)}
+						<div class="badge badge-error badge-sm gap-2">
+							<i class="fi fi-br-lock mt-1" />
+						</div>
+					{/if}
 				{/if}
 			</a>
 		</li>
