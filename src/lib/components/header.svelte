@@ -3,27 +3,50 @@
 </script>
 
 <div class="bg-base-200">
-	<div
-		id="header"
-		class="py-6 flex items-center justify-between mx-auto max-w-4xl lg:max-w-6xl z-10 relative bg-base-200"
-	>
-		<a class="btn btn-ghost" href="/">
-			<img src="/logo.png" width="120" alt="Logo">
-		</a>
-		<div class="flex space-x-10">
-			<a class="btn btn-ghost" href="/">Home</a>
-			<a class="btn btn-ghost" href="/#features">Features</a>
-			<a class="btn btn-ghost" href="/#pricing">Pricing</a>
+	<div class="navbar bg-base-200 py-6 sm:max-w-5xl mx-auto">
+		<div class="navbar-start">
+			<div class="dropdown">
+				<label tabindex="0" class="btn btn-ghost lg:hidden">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						><path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h8m-8 6h16"
+						/></svg
+					>
+				</label>
+				<ul
+					tabindex="0"
+					class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+				>
+					<li><a class="btn btn-ghost" href="/">Home</a></li>
+					<li><a class="btn btn-ghost" href="/#features">Features</a></li>
+					<li><a class="btn btn-ghost" href="/#pricing">Pricing</a></li>
+				</ul>
+			</div>
+			<a class="btn btn-ghost" href="/">
+				<img src="/logo.png" width="128" class="sm:w-32 w-24" alt="Logo" />
+			</a>
 		</div>
-		{#if isConnected}
-			<div class="flex items-center">
+		<div class="navbar-center hidden lg:flex">
+			<ul class="menu menu-horizontal px-1">
+				<li><a class="btn btn-ghost" href="/">Home</a></li>
+				<li><a class="btn btn-ghost" href="/#features">Features</a></li>
+				<li><a class="btn btn-ghost" href="/#pricing">Pricing</a></li>
+			</ul>
+		</div>
+		<div class="navbar-end">
+			{#if isConnected}
 				<a href="/dashboard" class="btn btn-primary"> Dashboard </a>
-			</div>
-		{:else}
-			<div class="flex items-center space-x-5">
-				<a class="btn btn-ghost" href="/login"> Sign In</a>
+			{:else}
 				<a href="/login" class="btn btn-primary"> Get Started </a>
-			</div>
-		{/if}
+			{/if}
+		</div>
 	</div>
 </div>

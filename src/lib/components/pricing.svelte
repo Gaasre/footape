@@ -2,7 +2,6 @@
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { dataset_dev } from 'svelte/internal';
 
 	let plan = false;
 
@@ -68,7 +67,7 @@
 
 <section class="bg-base-300 py-28" id="pricing">
 	<div class="text-center mb-12">
-		<h1 class="text-5xl font-bold mb-4">it's easy to Get started</h1>
+		<h1 class="text-4xl sm:text-5xl mx-auto sm:max-w-2xl max-w-sm font-bold mb-4">it's easy to Get started</h1>
 		<p class="mb-12">Choose a plan tailored to your needs</p>
 		<div class="flex justify-center">
 			<label class="label cursor-pointer gap-6">
@@ -86,12 +85,12 @@
 		</div>
 	</div>
 
-	<div class="flex gap-10 justify-center">
+	<div class="flex gap-10 justify-center sm:flex-row flex-col">
 		{#each pricingPlans as pricingPlan}
 			<div
 				class={`${
 					pricingPlan.primary ? 'bg-primary text-primary-content' : 'bg-base-200 text-base-content'
-				} px-10 py-8 border border-white/10 w-[340px]`}
+				} px-10 py-8 border border-white/10 w-[340px] mx-auto`}
 			>
 				<div>
 					<h2 class="text-2xl text-white mb-2">{pricingPlan.name}</h2>

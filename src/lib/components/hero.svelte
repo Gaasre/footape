@@ -37,13 +37,13 @@
 
 <section class="relative">
 	<Header {isConnected} />
-	<div class="mb-32 relative z-10 mt-36">
-		<p class="font-bold text-5xl text-center mb-4">
+	<div class="sm:mb-32 mb-20 relative z-10 mt-36">
+		<p class="font-bold text-4xl sm:text-5xl text-center mb-4">
 			The perfect <span class="relative">
 				<span class="text-[#C84648]">Youtube</span> channel
 			</span> <br />management tool
 		</p>
-		<p class="text-3xl text-center mb-11">
+		<p class="sm:text-3xl text-2xl text-center mb-11">
 			Manage your video creation <br />team and workflow in
 			<span class="font-bold text-secondary relative">
 				<!-- <img src="one-place.png" alt="one place" class="absolute right-3 top-9" /> -->
@@ -55,7 +55,7 @@
 		</div>
 		<p class="text-xs text-center mb-4">*Free 7-days Trial</p>
 		<div class="mx-auto w-fit flex justify-center items-center">
-			<p class="text-sm mr-10">Replaces</p>
+			<p class="text-sm mr-4 sm:mr-10">Replaces</p>
 			<img src="Trello.png" class="h-14" alt="" />
 			<div class="divider divider-horizontal" />
 			<img src="Zapier.png" class="h-8" alt="" />
@@ -64,7 +64,7 @@
 		</div>
 	</div>
 	<div
-		class="relative w-1/2 mx-auto"
+		class="relative w-full sm:w-1/2 sm:px-0 px-4 mx-auto"
 		use:inview={{ unobserveOnEnter: true }}
 		on:change={({ detail }) => {
 			isInView = detail.inView;
@@ -86,7 +86,7 @@
 				in:fly={{ y: 100, duration: 2000 }}
 				src="green-vector.png"
 				alt="Green Vector"
-				class="absolute -right-20 z-10 -top-24"
+				class="absolute right-0 sm:-right-20 z-10 w-32 sm:w-auto -top-12 sm:-top-24"
 			/>
 		{/if}
 	</div>
@@ -95,13 +95,13 @@
 			in:fly={{ y: 100, duration: 1000 }}
 			src="red-vector.png"
 			alt="Red Vector"
-			class="absolute left-0 top-80 z-20"
+			class="absolute left-0 top-64 w-32 sm:w-auto z-20"
 		/>
 		<img
 			in:fly={{ y: 100, duration: 1500 }}
 			src="blue-vector.png"
 			alt="Blue Vector"
-			class="absolute right-0 top-16 z-20"
+			class="absolute right-0 top-28 w-24 sm:w-auto z-20"
 		/>
 		<svg class="top-20 absolute fill-base-200" viewBox="0 0 1920 817" fill="none">
 			<path d="M0 817C941.179 553.568 1672.16 707.237 1920 817V0H0V817Z" />
