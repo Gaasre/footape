@@ -1,7 +1,7 @@
+import type { Member, Team, User } from "$lib/interfaces";
+import supabase from "$lib/supabaseClient.server";
 import { getServerSession } from "@supabase/auth-helpers-sveltekit";
 import type { LayoutServerLoad } from "./$types";
-import supabase from "$lib/supabaseClient.server";
-import type { Member, Permission, Team, User } from "$lib/interfaces";
 
 export const load: LayoutServerLoad = async (event) => {
     const session = await getServerSession(event)

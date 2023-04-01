@@ -1,8 +1,6 @@
-import { Section, Action } from '$lib/enums';
-import type { Video, Channel } from '$lib/interfaces';
+import type { Channel, Video } from '$lib/interfaces';
 import supabase from '$lib/supabaseClient.server';
-import { checkPermission } from '$lib/utils';
-import { error, redirect, fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ locals }) => {

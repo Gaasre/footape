@@ -1,7 +1,7 @@
-import type { RequestHandler } from './$types';
 import stripe from '$lib/stripe.server';
-import { redirect } from '@sveltejs/kit';
 import supabase from '$lib/supabaseClient.server';
+import { redirect } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request, locals }) => {
     if (!locals.session?.user) throw redirect(301, '/login')

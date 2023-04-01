@@ -89,32 +89,32 @@
 		{#each pricingPlans as pricingPlan}
 			<div
 				class={`${
-					pricingPlan.primary ? 'bg-primary text-primary-content' : 'bg-base-200 text-base-content'
-				} px-10 py-8 border border-white/10 w-[340px] mx-auto`}
+					pricingPlan.primary ? 'bg-base-200 text-primary border-primary border-2' : 'bg-base-200 text-base-content border-white/10 border'
+				} px-10 py-8 w-[340px] mx-auto sm:mx-0`}
 			>
 				<div>
 					<h2 class="text-2xl text-white mb-2">{pricingPlan.name}</h2>
-					<h1 class="font-bold text-5xl text-white">
+					<h1 class="font-bold text-5xl">
 						{plan ? pricingPlan.annualPrice : pricingPlan.monthlyPrice}
-						<span class="text-sm font-normal text-base-content">/{plan ? 'year' : 'month'}</span>
+						<span class="text-sm font-normal">/{plan ? 'year' : 'month'}</span>
 					</h1>
 				</div>
 				<div class="divider" />
 				<div class="space-y-5 mb-12">
 					<p class="flex gap-4">
-						<i class="fi fi-br-star text-success mt-0.5" />
+						<i class="fi fi-br-star text-white mt-0.5" />
 						<span>Access to <b class="text-white">Analytics</b></span>
 					</p>
 					<p class="flex gap-4">
-						<i class="fi fi-br-star text-success mt-0.5" />
+						<i class="fi fi-br-star text-white mt-0.5" />
 						<span><b class="text-white">{pricingPlan.channel}</b> channel</span>
 					</p>
 					<p class="flex gap-4">
-						<i class="fi fi-br-star text-success mt-0.5" />
+						<i class="fi fi-br-star text-white mt-0.5" />
 						<span><b class="text-white">{pricingPlan.team}</b> team members</span>
 					</p>
 					<p class="flex gap-4">
-						<i class="fi fi-br-star text-success mt-0.5" />
+						<i class="fi fi-br-star text-white mt-0.5" />
 						<span
 							><b class="text-white">{pricingPlan.videos}</b> videos
 							<span class="text-xs">/ month</span></span
@@ -138,7 +138,7 @@
 									};
 								}}
 							>
-								<button class="btn btn-ghost btn-outline w-full">Change subscription</button>
+								<button class={`btn btn-${pricingPlan.primary ? 'primary' : 'ghost'} btn-outline w-full`}>Change subscription</button>
 							</form>
 						{:else}
 							<button

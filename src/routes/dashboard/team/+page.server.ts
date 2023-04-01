@@ -1,9 +1,9 @@
-import type { PageServerLoad } from './$types';
-import supabase from '$lib/supabaseClient.server';
-import { error, fail, redirect, type Actions } from '@sveltejs/kit';
-import type { Member } from '$lib/interfaces';
-import { checkPermission } from '$lib/utils';
 import { Action, Section } from '$lib/enums';
+import type { Member } from '$lib/interfaces';
+import supabase from '$lib/supabaseClient.server';
+import { checkPermission } from '$lib/utils';
+import { error, fail, redirect, type Actions } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 const canInviteMembers = (subscription: string | undefined, member_count: number | undefined) => {
     if (member_count == null) return false

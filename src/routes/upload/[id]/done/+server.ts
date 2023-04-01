@@ -1,7 +1,7 @@
-import type { RequestHandler } from './$types';
-import { error } from '@sveltejs/kit';
-import supabase from '$lib/supabaseClient.server';
 import type { Video } from '$lib/interfaces';
+import supabase from '$lib/supabaseClient.server';
+import { error } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
 export const POST = (async ({ request, locals, params }) => {
     if (!locals.session?.user) return new Response(JSON.stringify(error(401)));

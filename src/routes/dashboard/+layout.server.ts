@@ -1,6 +1,6 @@
 import type { Channel } from '$lib/interfaces';
 import supabase from '$lib/supabaseClient.server';
-import { error, redirect } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
 export const load = (async ({ locals }) => {

@@ -1,7 +1,29 @@
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	daisyui: {
-		themes: ['light', 'dark', 'corporate', 'cupcake', 'halloween', 'night', 'business', 'fantasy', 'autumn', 'bumblebee', 'light'],
+		themes: ['light', 'dark', 'corporate', 'cupcake', 'halloween', 'night', 'business', 'fantasy', 'autumn', 'bumblebee', 'light',
+			{
+				custom: {
+					"primary": "#c3342e",
+							 
+					"secondary": "#49afae",
+							 
+					"accent": "#c1690b",
+							 
+					"neutral": "#1B1F27",
+							 
+					"base-100": "#FFFFFF",
+					"base-200": "#FCE4D5",
+							 
+					"info": "#7CB6D5",
+							 
+					"success": "#188B4C",
+							 
+					"warning": "#F0C24C",
+							 
+					"error": "#FC4A7A",
+				}
+			}],
 	},
 	theme: {
 		extend: {

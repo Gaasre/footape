@@ -40,12 +40,12 @@
 	<div class="sm:mb-32 mb-20 relative z-10 mt-36">
 		<p class="font-bold text-4xl sm:text-5xl text-center mb-4">
 			The perfect <span class="relative">
-				<span class="text-[#C84648]">Youtube</span> channel
+				<span class="text-primary">Youtube</span> channel
 			</span> <br />management tool
 		</p>
 		<p class="sm:text-3xl text-2xl text-center mb-11">
 			Manage your video creation <br />team and workflow in
-			<span class="font-bold text-secondary relative">
+			<span class="font-bold text-accent relative">
 				<!-- <img src="one-place.png" alt="one place" class="absolute right-3 top-9" /> -->
 				<span>one place</span>
 			</span>
