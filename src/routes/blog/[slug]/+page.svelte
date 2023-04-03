@@ -12,10 +12,7 @@
 	<title>{data.blog.title}</title>
 	<meta content={data.blog.title} property="og:title" />
 	<meta content={data.blog.title} property="twitter:title" />
-	<meta
-		name="description"
-		content={data.blog.description}
-	/>
+	<meta name="description" content={data.blog.description} />
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
@@ -41,8 +38,10 @@
 						<p class="text-xs">Amine</p>
 					</div>
 				</div>
-                <img class="rounded-lg shadow-lg w-full h-full mb-12" src={data.blog.image} alt="" />
-				<article class="prose-sm mx-auto text-left prose-h2:text-xl sm:prose">
+				{#if data.blog.image}
+					<img class="rounded-lg shadow-lg w-full h-full mb-12" src={data.blog.image} alt="" />
+				{/if}
+				<article class="prose-sm mx-auto text-left prose-h2:text-xl sm:prose prose-img:rounded-lg prose-img:shadow-lg">
 					{@html data.blog.content}
 				</article>
 			{/if}
