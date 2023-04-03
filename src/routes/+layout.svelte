@@ -7,6 +7,8 @@
 	import { theme } from '$lib/stores';
 	import { page } from '$app/stores';
 
+	import Analytics from '$lib/analytics.svelte';
+
 	let currentTheme: string;
 
 	theme.subscribe((value) => (currentTheme = value));
@@ -48,6 +50,9 @@
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 </svelte:head>
+
+<Analytics />
+
 <div data-theme={currentTheme}>
 	<slot />
 </div>
