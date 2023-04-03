@@ -44,8 +44,8 @@
 		name="twitter:description"
 		content="Create and collaborate on YouTube videos with ease using Footape. Manage your video creation process, resources, progress, and costs all in one place."
 	/>
-	<meta content="/Twitter.png" property="twitter:image" />
-	<meta content="/Twitter.png" property="og:image" />
+	<meta content="https://footape.com/Twitter.png" property="twitter:image" />
+	<meta content="https://footape.com/Twitter.png" property="og:image" />
 	<meta property="og:type" content="website" />
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
