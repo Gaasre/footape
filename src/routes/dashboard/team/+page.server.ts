@@ -26,7 +26,7 @@ const canInviteMembers = (subscription: string | undefined, member_count: number
 };
 
 const getPagination = (page: number, size: number) => {
-    const limit = size ? +size : 3
+    const limit = size ? +size : 9
     const from = page ? page * limit : 0
     const to = page ? from + size - 1 : size - 1
 
@@ -45,13 +45,13 @@ export const load = (async ({ locals, url }) => {
         page = parseInt(pageParam)
     }
 
-    const { from, to } = getPagination(page - 1, 5)
+    const { from, to } = getPagination(page - 1, 8)
 
     const { error: dbError, data: members, count } = await supabase.rpc('get_team_members', { 'user_id': locals.session.user.id }, { count: 'exact' })
         .returns<{ id: any, members: Member[] }>()
         .range(from, to)
 
-    return { members: members?.members, page, pages: count ? Math.ceil(count / 5) : 1 }
+    return { members: members?.members, page, pages: count ? Math.ceil(count / 8) : 1 }
 }) satisfies PageServerLoad;
 
 

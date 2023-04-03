@@ -2,8 +2,8 @@
 	export let isConnected: boolean;
 </script>
 
-<div class="bg-base-200">
-	<div class="navbar bg-base-200 py-6 sm:max-w-5xl mx-auto">
+<div class="bg-base-100">
+	<div class="navbar bg-base-100 py-6 sm:max-w-5xl mx-auto">
 		<div class="navbar-start">
 			<div class="dropdown">
 				<label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -39,6 +39,7 @@
 				<li><a class="btn btn-ghost" href="/">Home</a></li>
 				<li><a class="btn btn-ghost" href="/#features">Features</a></li>
 				<li><a class="btn btn-ghost" href="/#pricing">Pricing</a></li>
+				<li><a class="btn btn-ghost" href="/blog">Blog</a></li>
 			</ul>
 		</div>
 		<div class="navbar-end">

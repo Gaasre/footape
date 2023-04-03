@@ -55,15 +55,15 @@
 	<meta content="Footape - Workflow" property="twitter:title" />
 </svelte:head>
 
-<div class="max-h-[calc(100vh-66px)]">
+<div>
 	<h1 class="text-3xl font-bold mb-8">Workflow</h1>
-	<div class="overflow-auto h-[calc(100vh-200px)]">
+	<div class="overflow-auto h-[calc(100vh-150px)]">
 		<div class="grid sticky top-0 grid-cols-7 gap-5 w-max z-10">
 			{#each data.videos ?? [] as step}
 				<div class="w-64 px-2">
 					<div class="flex gap-2 items-center mb-4 bg-base-300 rounded-lg py-2 justify-center">
 						<h2 class="uppercase font-semibold text-base-content">{step.name}</h2>
-						<div class="badge badge-accent">{step.cards.length}</div>
+						<div class="badge badge-primary">{step.cards.length}</div>
 					</div>
 				</div>
 			{/each}
@@ -71,7 +71,7 @@
 		<div class="flex gap-4 w-full py-4">
 			{#each data.videos ?? [] as step, index}
 				<div
-					class="border-2 border-transparent border-dashed h-full min-h-[300px] bg-base-300 py-2 rounded-lg"
+					class="border-2 border-transparent border-dashed h-full min-h-[300px] bg-base-200 py-2 rounded-lg"
 					class:hovering={hovering == index}
 					on:drop|preventDefault={(event) => drop(event, index)}
 					on:dragenter={() => {

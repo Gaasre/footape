@@ -5,16 +5,16 @@
 </script>
 
 <div
-	class="p-4 bg-base-200 shadow cursor-pointer hover:shadow-md transition-all duration-200 ease-in-out rounded-lg space-y-3 select-none"
+	class="p-4 bg-base-100 shadow-md shadow-[#e9e9e9] border-[#e9e9e9] border cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out rounded-md space-y-3 select-none"
 >
 	<div>
-		<div class="badge badge-info">{video.channel?.name}</div>
+		<div class="badge badge-primary">{video.channel?.name}</div>
 	</div>
 	<p class="text-sm text-base-content">{video.title}</p>
 	<div class="flex gap-2 flex-wrap">
 		<div
 			class:badge-success={!!video.scriptLink}
-			class:badge-neutral={!video.scriptLink}
+			class:badge-ghost={!video.scriptLink}
 			class="badge gap-1 flex items-center"
 		>
 			<div>Script</div>
@@ -24,7 +24,7 @@
 		</div>
 		<div
 		class:badge-success={!!video.voiceOverLink}
-		class:badge-neutral={!video.voiceOverLink}
+		class:badge-ghost={!video.voiceOverLink}
 		class="badge gap-1 flex items-center"
 		>
 			<div>Voice-over</div>
@@ -34,7 +34,7 @@
 		</div>
 		<div
 		class:badge-success={!!video.videoLink}
-		class:badge-neutral={!video.videoLink}
+		class:badge-ghost={!video.videoLink}
 		class="badge gap-1 flex items-center"
 		>
 			<div>Video</div>

@@ -73,13 +73,13 @@
 			<label class="label cursor-pointer gap-6">
 				<span
 					class="label-text transition-all duration-300"
-					class:text-white={!plan}
+					class:text-primary={!plan}
 					class:font-bold={!plan}>Monthly</span
 				>
-				<input type="checkbox" class="toggle toggle-secondary" bind:checked={plan} />
+				<input type="checkbox" class="toggle toggle-primary" bind:checked={plan} />
 				<div class="label-text transition-all gap-2 flex items-center">
-					<span class:text-white={plan} class:font-bold={plan}>Yearly</span>
-					<span class="badge badge-primary badge-xs">40% OFF</span>
+					<span class:text-primary={plan} class:font-bold={plan}>Yearly</span>
+					<span class="badge badge-accent badge-xs">40% OFF</span>
 				</div>
 			</label>
 		</div>
@@ -89,8 +89,8 @@
 		{#each pricingPlans as pricingPlan}
 			<div
 				class={`${
-					pricingPlan.primary ? 'bg-base-200 text-primary border-primary border-2' : 'bg-base-200 text-base-content border-white/10 border'
-				} px-10 py-8 w-[340px] mx-auto sm:mx-0`}
+					pricingPlan.primary ? 'bg-primary text-primary-content border-primary border-2' : 'bg-neutral text-neutral-content border-base-200 border'
+				} px-10 py-8 w-[340px] mx-auto sm:mx-0 rounded-md`}
 			>
 				<div>
 					<h2 class="text-2xl text-white mb-2">{pricingPlan.name}</h2>
@@ -103,20 +103,20 @@
 				<div class="space-y-5 mb-12">
 					<p class="flex gap-4">
 						<i class="fi fi-br-star text-white mt-0.5" />
-						<span>Access to <b class="text-white">Analytics</b></span>
+						<span>Access to <b class="text-white font-semibold">Analytics</b></span>
 					</p>
 					<p class="flex gap-4">
 						<i class="fi fi-br-star text-white mt-0.5" />
-						<span><b class="text-white">{pricingPlan.channel}</b> channel</span>
+						<span><b class="text-white font-semibold">{pricingPlan.channel}</b> channel</span>
 					</p>
 					<p class="flex gap-4">
 						<i class="fi fi-br-star text-white mt-0.5" />
-						<span><b class="text-white">{pricingPlan.team}</b> team members</span>
+						<span><b class="text-white font-semibold">{pricingPlan.team}</b> team members</span>
 					</p>
 					<p class="flex gap-4">
 						<i class="fi fi-br-star text-white mt-0.5" />
 						<span
-							><b class="text-white">{pricingPlan.videos}</b> videos
+							><b class="text-white font-semibold">{pricingPlan.videos}</b> videos
 							<span class="text-xs">/ month</span></span
 						>
 					</p>
@@ -138,7 +138,7 @@
 									};
 								}}
 							>
-								<button class={`btn btn-${pricingPlan.primary ? 'primary' : 'ghost'} btn-outline w-full`}>Change subscription</button>
+								<button class={`btn btn-secondary w-full`}>Change subscription</button>
 							</form>
 						{:else}
 							<button
@@ -147,7 +147,7 @@
 										plan ? pricingPlan.annualPriceId : pricingPlan.monthlyPriceId,
 										pricingPlan.hasTrial
 									)}
-								class="btn btn-ghost btn-outline w-full"
+								class="btn btn-secondary w-full"
 								>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
 							>
 						{/if}
@@ -162,7 +162,7 @@
 								};
 							}}
 						>
-							<button class="btn btn-ghost btn-outline w-full">Manage</button>
+							<button class="btn btn-secondary w-full">Manage</button>
 						</form>
 					{/if}
 				{/if}

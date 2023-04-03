@@ -21,8 +21,8 @@ export const load = (async ({ locals }) => {
     const monthlyCosts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     const monthlyTime = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    const startDate = moment().startOf('year');
-    const endDate = moment().endOf('year');
+    const startDate = moment().subtract(6, 'M');
+    const endDate = moment().add(6, 'M');
 
     const startMonth = moment().startOf('month');
     const endMonth = moment().endOf('month');

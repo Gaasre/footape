@@ -1,6 +1,6 @@
 <section class="py-20">
     <div class="max-w-3xl mx-auto p-10 space-y-6">
-        <div class="uppercase p-4 rounded-lg bg-primary/50 text-primary-content w-fit mb-12">We <span class="font-bold">Get You</span></div>
+        <div class="uppercase p-4 rounded-lg bg-secondary text-primary w-fit mb-12">We <b>Get You</b></div>
 		<h1 class="font-bold text-4xl">Built By Youtube Business Owners For Youtube Business Owners</h1>
 		<p>
 			We understand the true challenges faced by Youtube Businesses in tracking the freelancers' work,

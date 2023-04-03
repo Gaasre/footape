@@ -73,14 +73,14 @@
 		{#if isInView}
 			<div
 				in:fly={{ y: 100, duration: 1000 }}
-				class="w-[calc(100%-100px)] h-24 bg-base-100 rounded-2xl shadow-lg absolute z-10 -top-10 left-0 right-0 mx-auto"
+				class="w-[calc(100%-80px)] h-24 bg-[#d4e2df] rounded-2xl shadow-lg absolute z-10 -top-8 left-0 right-0 mx-auto"
 			/>
 			<img
 				in:fly={{ y: 100, duration: 1500 }}
 				src="workflow.png"
 				width="100%"
 				alt="dashboard"
-				class="rounded-2xl border-8 relative border-base-300 shadow-lg z-30 mb-9"
+				class="rounded-2xl border-8 relative border-base-100 shadow-lg z-30 mb-9"
 			/>
 			<img
 				in:fly={{ y: 100, duration: 2000 }}
@@ -103,8 +103,5 @@
 			alt="Blue Vector"
 			class="absolute right-0 top-28 w-24 sm:w-auto z-20"
 		/>
-		<svg class="top-20 absolute fill-base-200" viewBox="0 0 1920 817" fill="none">
-			<path d="M0 817C941.179 553.568 1672.16 707.237 1920 817V0H0V817Z" />
-		</svg>
 	{/if}
 </section>

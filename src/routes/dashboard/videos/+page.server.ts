@@ -26,7 +26,7 @@ const canAddVideo = (subscription: string | undefined, video_count: number | und
 };
 
 const getPagination = (page: number, size: number) => {
-    const limit = size ? +size : 3
+    const limit = size ? +size : 8
     const from = page ? page * limit : 0
     const to = page ? from + size - 1 : size - 1
 
@@ -45,7 +45,7 @@ export const load = (async ({ locals, url }) => {
         page = parseInt(pageParam)
     }
 
-    const { from, to } = getPagination(page - 1, 5)
+    const { from, to } = getPagination(page - 1, 8)
 
     const { error: dbError, data: videos, count } = await supabase
         .from('video')
@@ -62,7 +62,7 @@ export const load = (async ({ locals, url }) => {
         .returns<Channel[]>()
 
     if (videos && channels) {
-        return { videos, channels, page, pages: count ? Math.ceil(count / 5) : 1 }
+        return { videos, channels, page, pages: count ? Math.ceil(count / 8) : 1 }
     }
 
     return fail(422);

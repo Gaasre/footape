@@ -12,6 +12,8 @@
 	let cost: HTMLCanvasElement;
 	let distribution: HTMLCanvasElement;
 
+	const currentMonth = new Date().getMonth();
+
 	const configTime = {
 		data: {
 			labels: moment.monthsShort(),
@@ -20,27 +22,53 @@
 					type: 'line' as ChartType,
 					label: 'Average time per video (days)',
 					data: data.monthlyTime,
-					backgroundColor: 'rgb(75, 192, 192)',
-					borderColor: 'rgb(75, 192, 192)',
-					tension: 0.1
-				}
+					backgroundColor: '#e5e8f06e',
+					borderColor: '#7b8cc6',
+					tension: 0.3,
+					fill: true
+				},
 			]
 		},
 		options: {
+			plugins: {
+				legend: {
+					display: false
+				}
+			},
 			borderRadius: '10',
 			responsive: false,
 			maintainAspectRatio: false,
 			cutout: '95%',
 			spacing: 2,
+			elements: {
+				point: {
+					pointStyle: false
+				}
+			},
 			scales: {
 				x: {
 					grid: {
 						display: false
+					},
+					ticks: {
+						font: {
+							family: 'Quicksand',
+							weight: 700
+						},
+						color: '#888f8f'
 					}
 				},
 				y: {
 					grid: {
-						display: false
+						display: true,
+						color: '#f8f8fa'
+					},
+					ticks: {
+						font: {
+							family: 'Quicksand',
+							weight: 700
+						},
+						color: '#888f8f'
 					}
 				}
 			}
@@ -52,33 +80,56 @@
 			labels: moment.monthsShort(),
 			datasets: [
 				{
-					type: 'bar' as ChartType,
+					type: 'line' as ChartType,
 					label: 'Monthly cost ($)',
+					borderColor: '#ebcaa5',
+					tension: 0.3,
+					fill: true,
 					data: data.monthlyCosts,
-					backgroundColor: data.monthlyCosts.map(
-						(count) =>
-							uniqolor(count * 10, {
-								lightness: 70
-							}).color
-					)
+					backgroundColor: '#fdf7ef'
 				}
 			]
 		},
 		options: {
+			elements: {
+				point: {
+					pointStyle: false
+				}
+			},
 			borderRadius: '10',
 			responsive: false,
 			maintainAspectRatio: false,
 			cutout: '95%',
 			spacing: 2,
+			plugins: {
+				legend: {
+					display: false
+				}
+			},
 			scales: {
 				x: {
 					grid: {
 						display: false
+					},
+					ticks: {
+						font: {
+							family: 'Quicksand',
+							weight: 700
+						},
+						color: '#888f8f'
 					}
 				},
 				y: {
 					grid: {
-						display: false
+						display: true,
+						color: '#f8f8fa'
+					},
+					ticks: {
+						font: {
+							family: 'Quicksand',
+							weight: 700
+						},
+						color: '#888f8f'
 					}
 				}
 			}
@@ -148,30 +199,60 @@
 		<div class="stat">
 			<div class="stat-title">Total videos this month</div>
 			<div class="stat-value">{data.totalVideos.count}</div>
-			<div class="stat-desc">{data.totalVideos.diff}% {data.totalVideos.label} than last month</div>
+			<div class="stat-desc flex items-center gap-2">
+				<i
+					class:text-success={data.totalVideos.label == 'more'}
+					class:text-error={data.totalVideos.label == 'less'}
+					class="fi fi-br-arrow-trend-up"
+				/>
+				<span
+					><b
+						class:text-success={data.totalVideos.label == 'more'}
+						class:text-error={data.totalVideos.label == 'less'}>{data.totalVideos.diff}%</b
+					>
+					{data.totalVideos.label} than last month</span
+				>
+			</div>
 		</div>
 		<div class="stat">
 			<div class="stat-title">Costs this month</div>
 			<div class="stat-value">$ {data.totalCost.count}</div>
-			<div class="stat-desc">{data.totalCost.diff}% {data.totalCost.label} than last month</div>
+			<div class="stat-desc flex items-center gap-2">
+				<i
+					class:text-success={data.totalCost.label == 'more'}
+					class:text-error={data.totalCost.label == 'less'}
+					class="fi fi-br-arrow-trend-up"
+				/>
+				<span
+					><b
+						class:text-success={data.totalCost.label == 'more'}
+						class:text-error={data.totalCost.label == 'less'}>{data.totalCost.diff}%</b
+					>
+					{data.totalCost.label} than last month</span
+				>
+			</div>
 		</div>
 	</div>
-	<div class="stats shadow flex-auto">
-		<div class="stat">
-			<div class="stat-title">Average Time per Video</div>
-			<canvas bind:this={time} class="w-full" height={300} />
-		</div>
+	<div class="rounded-md shadow-md shadow-[#e9e9e9] border-[#e9e9e9] border flex-auto p-6">
+		<h2 class="text-[#2e4d40] text-xl font-bold mb-4">Average Time per Video</h2>
+		<canvas bind:this={time} class="w-full" height={200} />
 	</div>
-	<div class="stats shadow">
-		<div class="stat">
-			<div class="stat-title">Channels Overview for the month</div>
+	<div class="rounded-md shadow-md shadow-[#e9e9e9] border-[#e9e9e9] border p-6 flex flex-col">
+		<div class="text-[#2e4d40] text-xl font-bold mb-4">Channels Overview</div>
+		<div class="h-full flex justify-center items-center">
 			<canvas bind:this={distribution} height="200" />
 		</div>
 	</div>
 </div>
-<div class="stats shadow w-full">
-	<div class="stat">
-		<div class="stat-title">Costs per Month</div>
+<div class="rounded-md shadow-md shadow-[#e9e9e9] border-[#e9e9e9] border flex-auto p-6">
+	<div class="text-[#2e4d40] text-xl font-bold mb-4">Monthly costs</div>
+	<div class="h-full flex justify-center items-center">
 		<canvas bind:this={cost} class="w-full" height={300} />
 	</div>
 </div>
+
+<style>
+	.stat-title {
+		@apply text-sm font-semibold text-[#888f8f];
+	}
+</style>

@@ -35,7 +35,7 @@
 			</button>
 		</div>
 		<div class="pt-4">
-			<p class="badge badge-warning capitalize mb-4">
+			<p class="badge badge-primary capitalize mb-4">
 				{$page.data.fullUser?.subscription} subscription
 			</p>
 			{#if $page.data.fullUser?.position == 'Owner'}

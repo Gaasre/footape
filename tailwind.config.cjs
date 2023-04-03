@@ -4,24 +4,25 @@ const config = {
 		themes: ['light', 'dark', 'corporate', 'cupcake', 'halloween', 'night', 'business', 'fantasy', 'autumn', 'bumblebee', 'light',
 			{
 				custom: {
-					"primary": "#c3342e",
-							 
-					"secondary": "#49afae",
-							 
-					"accent": "#c1690b",
-							 
+					"primary": "#169e6c",
+
+					"secondary": "#d4e2df",
+
+					"accent": "#ebcaa5",
+
 					"neutral": "#1B1F27",
-							 
+
 					"base-100": "#FFFFFF",
-					"base-200": "#FCE4D5",
-							 
-					"info": "#7CB6D5",
-							 
-					"success": "#188B4C",
-							 
-					"warning": "#F0C24C",
-							 
-					"error": "#FC4A7A",
+					"base-200": "#f8f8fa",
+					"base-300": "#FFFFFF",
+
+					"info": "#04A8D1",
+
+					"success": "#10BC58",
+
+					"warning": "#E57D06",
+
+					"error": "#E0355D",
 				}
 			}],
 	},
@@ -39,7 +40,7 @@ const config = {
 			}
 		}
 	},
-	plugins: [require("daisyui")],
+	plugins: [require("daisyui"), require('@tailwindcss/typography')],
 };
 
 module.exports = config;

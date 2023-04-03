@@ -1,4 +1,4 @@
-<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+<footer class="footer footer-center p-10 bg-base-100 text-base-content rounded border-t border-[#d4e2df]">
 	<div class="grid grid-flow-col gap-4">
 		<a class="link link-hover">About us</a>
 		<a href="mailto:contact@footape.com" class="link link-hover">Contact</a>

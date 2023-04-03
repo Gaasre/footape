@@ -64,31 +64,35 @@
 		</div>
 	</div>
 {/if}
-<div class="flex justify-between mb-12">
-	<h1 class="text-3xl font-bold">Team</h1>
-	{#if checkPermission($page.data.fullUser?.permissions, Section.Team, Action.Add, $page.data.fullUser?.position)}
-		<div class="float-right">
-			<button on:click={inviteMember} class="btn btn-primary space-x-2">
-				<i class="fi fi-br-user-add" />
-				<span>Invite Member</span>
-			</button>
+<div class="flex flex-col">
+	<div class="flex justify-between mb-12">
+		<h1 class="text-3xl font-bold">Team</h1>
+		{#if checkPermission($page.data.fullUser?.permissions, Section.Team, Action.Add, $page.data.fullUser?.position)}
+			<div class="float-right">
+				<button on:click={inviteMember} class="btn btn-primary space-x-2">
+					<i class="fi fi-br-user-add" />
+					<span>Invite Member</span>
+				</button>
+			</div>
+		{/if}
+	</div>
+	<div>
+		<div class="overflow-y-auto h-[calc(100%-66px)] mb-10">
+			<TeamTable data={data.members ?? []} />
 		</div>
-	{/if}
-</div>
-<div class="overflow-y-auto h-[calc(100%-66px)] mb-10">
-	<TeamTable data={data.members ?? []} />
-</div>
-<div class="btn-group flex justify-center">
-	<a
-		href={`?page=${previousPage()}`}
-		class="btn btn-primary"
-		class:btn-disabled={data.page ? data.page <= 1 : true}>«</a
-	>
-	<button class="btn btn-primary">Page {data.page}/{data.pages}</button>
-	<a
-		href={`?page=${nextPage()}`}
-		class="btn btn-primary"
-		class:btn-disabled={data.pages ? data.page >= data.pages : true}>»</a
-	>
+		<div class="btn-group flex justify-center">
+			<a
+				href={`?page=${previousPage()}`}
+				class="btn btn-primary"
+				class:btn-disabled={data.page ? data.page <= 1 : true}>«</a
+			>
+			<button class="btn btn-primary">Page {data.page}/{data.pages}</button>
+			<a
+				href={`?page=${nextPage()}`}
+				class="btn btn-primary"
+				class:btn-disabled={data.pages ? data.page >= data.pages : true}>»</a
+			>
+		</div>
+	</div>
 </div>
 <InviteUser onClose={() => (inviteMemberVisible = false)} visible={inviteMemberVisible} />

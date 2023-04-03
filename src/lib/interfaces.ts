@@ -68,3 +68,15 @@ export interface Work {
     video?: Video
     finished_at: Date
 }
+
+export interface Blog {
+    id: string
+    image: string
+    title: string
+    slug:string
+    description: string
+    created_at: Date
+    categories: string[]
+    readingtime: number
+    content: string
+}

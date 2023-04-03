@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.postcss';
-	import '@fontsource/quicksand';
 	import { onMount } from 'svelte';
 	import supabase from '$lib/supabaseClient';
 	import { invalidateAll } from '$app/navigation';
@@ -56,6 +55,7 @@
 <style>
 	@import '@flaticon/flaticon-uicons/css/bold/rounded.css';
 	@import '@flaticon/flaticon-uicons/css/brands/all.css';
+	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 	:global(*) {
 		font-family: 'Quicksand', sans-serif;

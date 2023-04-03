@@ -93,7 +93,13 @@
 		</div>
 	</div>
 {/if}
-<ul class="bg-base-100 menu menu-compact flex flex-col p-0 px-4 w-52 mt-10">
+
+<div class="text-center my-4">
+	<a class="btn btn-ghost" href="/">
+		<img src="/logo.png" width="120" alt="Logo" />
+	</a>
+</div>
+<ul class="bg-base-200 menu menu-compact flex flex-col px-1 p-0 w-52 mt-10">
 	{#each navigation as item}
 		<li class="mb-1">
 			<a class:active={path == item.target} href={item.target}>
@@ -147,3 +153,21 @@
 	{/each}
 </ul>
 <NewChannel onClose={() => (newChannelVisible = false)} visible={newChannelVisible} />
+
+<style>
+	.menu {
+		@apply text-[#888f8f] font-semibold;
+	}
+
+	.menu .active {
+		@apply text-[#4e6e66] bg-[#d4e2df] font-bold;
+	}
+
+	.menu .active i {
+		@apply text-primary;
+	}
+
+	.menu-title {
+		@apply uppercase;
+	}
+</style>
