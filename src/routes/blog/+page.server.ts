@@ -22,7 +22,7 @@ export const load = (async ({ url }) => {
     const { from, to } = getPagination(page - 1, 10)
     const { data: blogs, count } = await supabase
         .from('blog')
-        .select('title, description, image, categories, readingtime, slug', { count: 'exact' })
+        .select('title, description, image, categories, readingtime, slug, created_at', { count: 'exact' })
         .order('created_at', { ascending: false })
         .range(from, to)
         .returns<Blog[]>()

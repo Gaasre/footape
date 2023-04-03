@@ -30,16 +30,16 @@
 	<Header isConnected={!!$page.data.session?.user} />
 	<div class="grow w-full bg-base-300">
 		<div class="bg-base-100 text-center pt-24 pb-8">
-			<div class="max-w-2xl mx-auto">
-				<h1 class="font-bold text-6xl mb-4">Footape Blog</h1>
-				<h2 class="text-xl">
+			<div class="max-w-xs sm:max-w-2xl mx-auto">
+				<h1 class="font-bold text-5xl sm:ext-6xl mb-4">Footape Blog</h1>
+				<h2 class="sm:text-xl text-lg">
 					Master YouTube automation: expert strategies, collaboration, freelancer management and
 					expense control.
 				</h2>
 			</div>
 		</div>
 	</div>
-	<div class="max-w-2xl mx-auto pt-16 py-12 w-full flex flex-col space-y-4">
+	<div class="max-w-xs sm:max-w-2xl mx-auto pt-16 py-12 w-full flex flex-col space-y-4">
 		{#if data.blogs}
 			{#each data.blogs as blog}
 				<BlogCard {blog} />

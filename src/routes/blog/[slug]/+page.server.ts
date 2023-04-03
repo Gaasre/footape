@@ -7,7 +7,7 @@ import { compile } from 'mdsvex';
 export const load = (async ({ params }) => {
     const { data: blog } = await supabase
         .from('blog')
-        .select('title, description, image, categories, readingtime, slug, content')
+        .select('title, description, image, categories, readingtime, slug, content, created_at')
         .eq('slug', params.slug)
         .single<Blog>()
 

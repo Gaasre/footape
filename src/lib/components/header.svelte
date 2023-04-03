@@ -28,6 +28,7 @@
 					<li><a class="btn btn-ghost" href="/">Home</a></li>
 					<li><a class="btn btn-ghost" href="/#features">Features</a></li>
 					<li><a class="btn btn-ghost" href="/#pricing">Pricing</a></li>
+					<li><a class="btn btn-ghost" href="/blog">Blog</a></li>
 				</ul>
 			</div>
 			<a class="btn btn-ghost" href="/">
