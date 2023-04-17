@@ -6,12 +6,10 @@ import type { RequestEvent, RequestHandler } from './$types';
 const WEBHOOK_SECRET = process.env['STRIPE_WEBHOOK_SECRET'];
 
 const prices = [
-    { id: 'price_1Moo1sIHpJ2Gf9tL5uqNTLc9', subscription: 'starter', frequency: 'monthly' },
-    { id: 'price_1Moo1sIHpJ2Gf9tLCarOybsh', subscription: 'starter', frequency: 'annual' },
-    { id: 'price_1Moo3eIHpJ2Gf9tLgiP3eaxt', subscription: 'standard', frequency: 'monthly' },
-    { id: 'price_1Moo3eIHpJ2Gf9tLzuaHjf59', subscription: 'standard', frequency: 'annual' },
-    { id: 'price_1Moo55IHpJ2Gf9tLQ3bXy8wN', subscription: 'premium', frequency: 'monthly' },
-    { id: 'price_1Moo55IHpJ2Gf9tLqAo1nb2o', subscription: 'premium', frequency: 'annual' },
+    { id: 'price_1Moo3eIHpJ2Gf9tLgiP3eaxt', subscription: 'premium', frequency: 'monthly' },
+    { id: 'price_1Moo3eIHpJ2Gf9tLzuaHjf59', subscription: 'premium', frequency: 'annual' },
+    { id: 'price_1Moo55IHpJ2Gf9tLQ3bXy8wN', subscription: 'entreprise', frequency: 'monthly' },
+    { id: 'price_1Moo55IHpJ2Gf9tLqAo1nb2o', subscription: 'entreprise', frequency: 'annual' },
 ]
 
 function toBuffer(ab: ArrayBuffer): Buffer {

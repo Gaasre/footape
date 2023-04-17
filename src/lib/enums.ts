@@ -29,5 +29,6 @@ export enum Status {
     InVideoEditing = 'In Video Editing',
     InQualityCheck = 'In Quality Check',
     ReadyForUpload = 'Ready For Upload',
-    Published = 'Published'
+    Published = 'Published',
+    Archived = 'Archived'
 }

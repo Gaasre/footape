@@ -4,7 +4,9 @@ import type { Actions, PageServerLoad } from './$types';
 
 export const load = (async ({ locals }) => {
     if (!locals.session?.user) throw redirect(301, '/login')
-    //if (locals.fullUser?.firstname && !locals.fullUser?.lastname) throw redirect(301, '/dashboard')
+    if (locals.fullUser?.position != 'Owner') {
+        throw redirect(301, '/dashboard')
+    }
     return {};
 }) satisfies PageServerLoad;
 

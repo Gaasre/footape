@@ -7,6 +7,7 @@ export interface Member {
     rate: number
     frequency: 'hourly' | 'per video'
     permissions: Permission
+    userid: string
 }
 
 export interface Team {

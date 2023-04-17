@@ -13,12 +13,12 @@ const canAddVideo = (subscription: string | undefined, video_count: number | und
                 return false;
             }
             return true;
-        case 'standard':
+        case 'premium':
             if (video_count >= 30) {
                 return false;
             }
             return true;
-        case 'premium':
+        case 'entreprise':
             return true;
         default:
             return false;

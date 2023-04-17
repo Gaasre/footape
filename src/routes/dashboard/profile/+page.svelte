@@ -5,6 +5,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	let loading = false;
 
 	const updateImage = async () => {
 		const formData = new FormData();
@@ -35,7 +36,7 @@
 			</button>
 		</div>
 		<div class="pt-4">
-			<p class="badge badge-primary capitalize mb-4">
+			<p class="badge badge-accent capitalize mb-4">
 				{$page.data.fullUser?.subscription} subscription
 			</p>
 			{#if $page.data.fullUser?.position == 'Owner'}
@@ -63,12 +64,14 @@
 			action={`?/editUser`}
 			class="space-y-4"
 			use:enhance={({ form }) => {
+				loading = true
 				return async ({ result, update }) => {
 					if (result.type === 'success') {
 						console.log(result);
 					} else if (result.type === 'error') {
 						await applyAction(result);
 					}
+					loading = false
 					update({ reset: false });
 				};
 			}}
@@ -110,7 +113,7 @@
 				/>
 			</div>
 			<div>
-				<button class="btn btn-primary">Submit</button>
+				<button class:loading={loading} class="btn btn-primary">Submit</button>
 			</div>
 		</form>
 	</div>

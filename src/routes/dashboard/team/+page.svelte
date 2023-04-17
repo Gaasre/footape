@@ -27,12 +27,12 @@
 					return false;
 				}
 				return true;
-			case 'standard':
+			case 'premium':
 				if ($page.data.fullUser?.member_count >= 10) {
 					return false;
 				}
 				return true;
-			case 'premium':
+			case 'entreprise':
 				return true;
 			default:
 				return false;

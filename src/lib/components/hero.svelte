@@ -40,12 +40,12 @@
 	<div class="sm:mb-32 mb-20 relative z-10 mt-36">
 		<p class="font-bold text-4xl sm:text-5xl text-center mb-4">
 			The perfect <span class="relative">
-				<span class="text-primary">Youtube</span> channel
+				<span class="text-error">Youtube</span> channel
 			</span> <br />management tool
 		</p>
 		<p class="sm:text-3xl text-2xl text-center mb-11">
 			Manage your video creation <br />team and workflow in
-			<span class="font-bold text-accent relative">
+			<span class="font-bold text-primary relative">
 				<!-- <img src="one-place.png" alt="one place" class="absolute right-3 top-9" /> -->
 				<span>one place</span>
 			</span>
@@ -53,7 +53,7 @@
 		<div class="flex justify-center space-x-2 mb-2">
 			<a href="/login" class="btn btn-primary btn-lg"> sign up now </a>
 		</div>
-		<p class="text-xs text-center mb-4">*Free 7-days Trial</p>
+		<p class="text-xs text-center mb-4">*Free for small channels</p>
 		<div class="mx-auto w-fit flex justify-center items-center">
 			<p class="text-sm mr-4 sm:mr-10">Replaces</p>
 			<img src="Trello.png" class="h-14" alt="" />

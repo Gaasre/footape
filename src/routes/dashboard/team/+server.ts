@@ -2,6 +2,7 @@ import type { Action, Section } from '$lib/enums';
 import supabase from '$lib/supabaseClient.server';
 import { error, fail } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import type { Member, User } from '$lib/interfaces';
 
 export const POST = (async ({ request, locals }) => {
     if (!locals.session?.user) return new Response(JSON.stringify(error(401)));
@@ -38,15 +39,29 @@ export const POST = (async ({ request, locals }) => {
 export const DELETE = (async ({ request, locals, url }) => {
     if (!locals.session?.user) throw error(401);
     const id = url.searchParams.get('id')
-    const { error: queryError, data } = await supabase
-        .rpc('remove_member', { leader: locals.session.user.id, toremove: id })
-        .returns<boolean>()
 
-    if (queryError) {
-        return new Response(JSON.stringify(fail(422, queryError)));
-    }
+    if (locals.fullUser?.confirmed_at) {
+        const { error: queryError, data } = await supabase
+            .rpc('remove_member', { leader: locals.session.user.id, toremove: id })
+            .returns<boolean>()
 
-    if (data) {
+        if (queryError) {
+            return new Response(JSON.stringify(fail(422, queryError)));
+        }
+
+        if (data) {
+            return new Response(JSON.stringify({ success: true }))
+        }
+    } else {
+        const { data: member } = await supabase.from('member').select('userid').eq('id', id).single<Member>()
+        if (!member) return new Response(JSON.stringify(fail(422)));
+
+        const { error: queryError } = await supabase.auth.admin.deleteUser(member?.userid)
+
+        if (queryError) {
+            return new Response(JSON.stringify(fail(422)));
+        }
+
         return new Response(JSON.stringify({ success: true }))
     }
 

@@ -22,7 +22,7 @@
 						</div>
 					</label>
 					<div class="text-left">
-						<p class="badge badge-primary capitalize">
+						<p class="badge badge-accent capitalize">
 							{$page.data.fullUser?.subscription} Plan
 						</p>
 						<p class="font-bold">{$page.data.fullUser?.firstname} {$page.data.fullUser?.lastname}</p>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div
-			class="rounded-lg bg-base-100 px-5 py-6 h-full w-[calc(100%-250px)]"
+			class="rounded-lg bg-base-100 px-5 py-6 h-full w-[calc(100%-250px)] overflow-y-auto"
 		>
 			<slot />
 		</div>

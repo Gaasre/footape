@@ -6,12 +6,13 @@
 	export let visible: boolean;
 	export let onClose: () => void;
 	export let member: Member;
+	let loading = false;
 </script>
 
 {#if visible}
 	<div
 		in:fly={{ x: 20 }}
-		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-10 p-6"
+		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-20 p-6"
 	>
 	<div class="flex items-center mb-4">
 		<button class="btn btn-ghost btn-sm btn-circle" on:click={onClose}>
@@ -23,6 +24,7 @@
 			method="POST"
 			action={`?/editMember&id=${member.id}`}
 			use:enhance={({ form }) => {
+				loading = true;
 				return async ({ result, update }) => {
 					if (result.type === 'success') {
 						onClose()
@@ -31,6 +33,7 @@
 					if (result.type === 'error') {
 						await applyAction(result);
 					}
+					loading = false;
 					update();
 				};
 			}}
@@ -102,7 +105,7 @@
 			</div>
 
 			<div class="float-right">
-				<button class="btn btn-primary btn-sm"> Edit Member </button>
+				<button class:loading={loading} class="btn btn-primary btn-sm"> Edit Member </button>
 			</div>
 		</form>
 	</div>

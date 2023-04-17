@@ -15,7 +15,7 @@
 	<div class="flex items-center mb-16 flex-col-reverse sm:flex-row">
 		<div class="sm:w-1/2">
 			{#if sectionOneInView}
-				<div class="sm:w-1/2 sm:float-right px-8" in:fly={{ x: -300, duration: 1500 }}>
+				<div class="sm:float-right px-8" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Collaborate effortlessly with <br />your team</p>
 					<p class="mb-7">
 						Simplify your video creation process and <br />work more effectively with your team
@@ -112,7 +112,7 @@
 		</div>
 		<div class="sm:w-1/2">
 			{#if sectionTwoInView}
-				<div class="sm:w-1/2 sm:float-left px-8" in:fly={{ x: 300, duration: 1500 }}>
+				<div class="sm:float-left px-8" in:fly={{ x: 300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Stay on track with easy <br />workflow management</p>
 					<p class="mb-7">
 						With the platform's kanban board, you can easily <br />visualize your video creation
@@ -142,7 +142,7 @@
 	<div class="flex items-center mb-16 flex-col-reverse sm:flex-row">
 		<div class="sm:w-1/2">
 			{#if sectionThreeInView}
-				<div class="sm:w-1/2 sm:float-right px-8" in:fly={{ x: -300, duration: 1500 }}>
+				<div class="sm:float-right px-8" in:fly={{ x: -300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">Simplify your video creation <br />process</p>
 					<p class="mb-7">
 						Simplify your workflow and ditch multiple tools and <br />platforms. With the platform,
@@ -235,7 +235,7 @@
 		</div>
 		<div class="sm:w-1/2">
 			{#if sectionFourInView}
-				<div class="sm:w-1/2 sm:float-left px-8" in:fly={{ x: 300, duration: 1500 }}>
+				<div class="sm:float-left px-8" in:fly={{ x: 300, duration: 1500 }}>
 					<p class="text-2xl font-bold mb-5">
 						Gain insights into your video <br />creation process
 					</p>
@@ -247,7 +247,7 @@
 						<li class="flex space-x-10 items-center">
 							<i class="fi fi-br-list-check mt-0.5 text-warning text-xl" />
 							<p>
-								<span class="text-warning font-bold">Track time</span> taken for each step of the process,
+								<span class="text-warning font-bold">Track time</span> taken for each step of the process,<br />
 								see expenses incurred, and keep track of any delays
 							</p>
 						</li>
@@ -255,7 +255,7 @@
 							<i class="fi fi-br-time-check mt-0.5 text-warning text-xl" />
 							<p>
 								<span class="text-warning font-bold">Use the data</span> provided to identify areas of
-								improvement and optimize your video creation process
+								improvement <br />and optimize your video creation process
 							</p>
 						</li>
 					</ul>

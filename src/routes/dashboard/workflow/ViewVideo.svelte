@@ -7,6 +7,7 @@
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
 	import Upload from '$lib/components/Upload.svelte';
+	import Files from '$lib/components/Files.svelte';
 
 	export let visible: boolean;
 	export let video: Video;
@@ -45,6 +46,19 @@
 		});
 
 		await invalidateAll();
+	};
+
+	let archiveLoading = false;
+
+	const archiveVideo = async () => {
+		archiveLoading = true;
+		await fetch(`/dashboard/workflow?id=${video.id}`, {
+			method: 'PUT',
+			body: JSON.stringify({ status: Status.Archived })
+		});
+
+		await invalidateAll();
+		archiveLoading = false;
 	};
 
 	const unassign = async (workid: string) => {
@@ -126,9 +140,11 @@
 				</div>
 			</div>
 			<div>
-				<h1 class="text-3xl font-bold text-ellipsis overflow-hidden max-w-sm whitespace-nowrap">
-					{video.title}
-				</h1>
+				<div class="tooltip tooltip-bottom" data-tip={video.title}>
+					<h1 class="text-3xl font-bold text-ellipsis overflow-hidden max-w-sm whitespace-nowrap">
+						{video.title}
+					</h1>
+				</div>
 				<h2 class="text-gray">{video.channel.name}</h2>
 			</div>
 		</div>
@@ -136,6 +152,17 @@
 		<div class="divider" />
 
 		<div class="space-y-4">
+			<div class="flex flex-row-reverse">
+				{#if video.status == Status.Published}
+				<button
+					class:loading={archiveLoading}
+					on:click={archiveVideo}
+					class="btn btn-xs btn-error gap-2"
+				>
+					<i class="fi fi-br-box mt-0.5" /> <span>Archive</span>
+				</button>
+			{/if}
+			</div>
 			{#if isAssignedToMe()}
 				<div class="flex flex-row-reverse relative mb-4 gap-2">
 					{#if timeLogVisible}
@@ -234,6 +261,7 @@
 
 		<div class="divider" />
 
-		<Upload {video} />
+		<!-- <Upload {video} /> -->
+		<Files {video} />
 	</div>
 {/if}

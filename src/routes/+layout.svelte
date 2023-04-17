@@ -67,4 +67,22 @@
 		font-family: 'Quicksand', sans-serif;
 		@apply scroll-smooth;
 	}
+	
+	:global(::-webkit-scrollbar) {
+		@apply w-3 h-3;
+	}
+
+	/* Track */
+	:global(::-webkit-scrollbar-track) {
+		@apply bg-base-300 rounded-full;
+	}
+
+	/* Handle */
+	:global(::-webkit-scrollbar-thumb) {
+		@apply bg-primary rounded-full transition-all duration-300 ease-in-out hover:bg-primary-focus;
+	}
+
+	:global(::-webkit-scrollbar-corner) {
+		@apply hidden;
+	}
 </style>

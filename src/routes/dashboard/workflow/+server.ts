@@ -25,6 +25,13 @@ export const PUT: RequestHandler = async ({ locals, url, request }) => {
                 .eq('id', id)
         }
 
+        if (data.status != Status.Published && data.status != Status.Archived) {
+            await supabase
+                .from('video')
+                .update({ publishedAt: null })
+                .eq('id', id)
+        }
+
         return new Response(JSON.stringify({ success: true }))
     }
 

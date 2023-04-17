@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { applyAction, enhance } from '$app/forms';
+	import Files from '$lib/components/Files.svelte';
 	import Upload from '$lib/components/Upload.svelte';
 	import type { Channel, Video } from '$lib/interfaces';
 	import { fly } from 'svelte/transition';
@@ -8,12 +9,13 @@
 	export let video: Video;
 	export let channels: Channel[];
 	export let onClose: () => void;
+	let loading = false;
 </script>
 
 {#if visible}
 	<div
 		in:fly={{ x: 20 }}
-		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-10 p-6"
+		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-20 p-6"
 	>
 		<div class="flex items-center mb-4">
 			<button class="btn btn-ghost btn-sm btn-circle" on:click={onClose}>
@@ -25,14 +27,16 @@
 			method="POST"
 			action={`?/editVideo&id=${video.id}`}
 			use:enhance={({ form }) => {
+				loading = true;
 				return async ({ result, update }) => {
 					if (result.type === 'success') {
-						onClose()
+						onClose();
 						form.reset();
 					}
 					if (result.type === 'error') {
 						await applyAction(result);
 					}
+					loading = false;
 					update();
 				};
 			}}
@@ -48,9 +52,11 @@
 					</div>
 				</div>
 				<div>
-					<h1 class="text-3xl font-bold text-ellipsis overflow-hidden max-w-sm whitespace-nowrap">
-						{video.title}
-					</h1>
+					<div class="tooltip tooltip-bottom" data-tip={video.title}>
+						<h1 class="text-3xl font-bold text-ellipsis overflow-hidden max-w-sm whitespace-nowrap">
+							{video.title}
+						</h1>
+					</div>
 					<h2>{video.channel.name}</h2>
 				</div>
 			</div>
@@ -101,12 +107,13 @@
 			</div>
 
 			<div class="flex flex-row-reverse">
-				<button class="btn btn-primary btn-sm"> Edit Video </button>
+				<button class:loading class="btn btn-primary btn-sm"> Edit Video </button>
 			</div>
 		</form>
 
 		<div class="divider" />
 
-		<Upload {video} />
+		<!-- <Upload {video} /> -->
+		<Files {video} />
 	</div>
 {/if}

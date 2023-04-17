@@ -26,7 +26,7 @@
 		}
 	};
 
-	export let onSelectVideo: (videoIndex: number) => void
+	export let onSelectVideo: (videoIndex: string) => void
 </script>
 
 <div class="w-64 px-2">
@@ -38,7 +38,7 @@
 				draggable={true}
 				on:dragstart={(event) => dragstart(event, card)}
 				on:dragover|preventDefault={() => false}
-				on:click={() => onSelectVideo(cardIndex)}
+				on:click={() => onSelectVideo(card.id)}
 			>
 				<VideoCard video={card} />
 			</div>

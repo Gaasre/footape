@@ -16,13 +16,13 @@ const config = {
 					"base-200": "#f8f8fa",
 					"base-300": "#FFFFFF",
 
-					"info": "#04A8D1",
+					"info": "#1073E5",
 
-					"success": "#10BC58",
+					"success": "#40D07E",
 
-					"warning": "#E57D06",
+					"warning": "#E1C538",
 
-					"error": "#E0355D",
+					"error": "#DD2746",
 				}
 			}],
 	},

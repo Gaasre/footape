@@ -26,7 +26,7 @@
 					borderColor: '#7b8cc6',
 					tension: 0.3,
 					fill: true
-				},
+				}
 			]
 		},
 		options: {
@@ -68,7 +68,10 @@
 							family: 'Quicksand',
 							weight: 700
 						},
-						color: '#888f8f'
+						color: '#888f8f',
+						callback: function (value: number, index: number, ticks: any) {
+							return value.toFixed(1);
+						}
 					}
 				}
 			}
@@ -129,7 +132,10 @@
 							family: 'Quicksand',
 							weight: 700
 						},
-						color: '#888f8f'
+						color: '#888f8f',
+						callback: function (value: string, index: number, ticks: any) {
+							return '$' + value;
+						}
 					}
 				}
 			}

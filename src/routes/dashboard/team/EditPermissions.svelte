@@ -7,6 +7,7 @@
 	export let visible: boolean;
 	export let onClose: () => void;
 	export let member: Member;
+	let loading = false;
 
 	let toUpdate: { section: Section; action: Action; memberid: string }[] = [];
 	let toDelete: { section: Section; action: Action; memberid: string }[] = [];
@@ -34,6 +35,7 @@
 	};
 
 	const savePermissions = async () => {
+		loading = true
 		const res = await fetch('', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -51,6 +53,7 @@
 		toDelete = [];
 		toUpdate = [];
 
+		loading = false
 		onClose()
 	};
 
@@ -74,7 +77,7 @@
 {#if visible}
 	<div
 		in:fly={{ x: 20 }}
-		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-10 p-6"
+		class="absolute top-0 my-16 mx-8 right-0 max-w-lg w-full h-auto rounded-lg bg-base-300 shadow-lg z-20 p-6"
 	>
 		<div class="flex items-center mb-4">
 			<button class="btn btn-ghost btn-sm btn-circle" on:click={onClose}>
@@ -149,7 +152,7 @@
 		</div>
 
 		<div class="float-right">
-			<button class="btn btn-primary btn-sm" on:click={savePermissions}> Save Permissions </button>
+			<button class:loading={loading} class="btn btn-primary btn-sm" on:click={savePermissions}> Save Permissions </button>
 		</div>
 	</div>
 {/if}

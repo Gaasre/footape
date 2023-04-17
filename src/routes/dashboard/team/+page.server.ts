@@ -13,12 +13,12 @@ const canInviteMembers = (subscription: string | undefined, member_count: number
                 return false;
             }
             return true;
-        case 'standard':
+        case 'premium':
             if (member_count >= 10) {
                 return false;
             }
             return true;
-        case 'premium':
+        case 'entreprise':
             return true;
         default:
             return false;

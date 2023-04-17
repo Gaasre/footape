@@ -13,12 +13,12 @@ const canAddChannel = (subscription: string | undefined, channel_count: number |
                 return false;
             }
             return true;
-        case 'standard':
+        case 'premium':
             if (channel_count >= 3) {
                 return false;
             }
             return true;
-        case 'premium':
+        case 'entreprise':
             return true;
         default:
             return false;

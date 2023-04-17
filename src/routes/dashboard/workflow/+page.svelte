@@ -8,12 +8,12 @@
 	let hovering = -1;
 	export let data: PageData;
 
-	let selectedVideo: number;
+	let selectedVideoId: string;
 	let selectedStatus: number;
 	let infoVisible = false;
 
-	const selectVideo = (videoIndex: number, statusIndex: number) => {
-		selectedVideo = videoIndex;
+	const selectVideo = (videoId: string, statusIndex: number) => {
+		selectedVideoId = videoId;
 		selectedStatus = statusIndex;
 		infoVisible = true;
 	};
@@ -47,6 +47,8 @@
 		}
 		hovering = -1;
 	};
+
+	$: selectedVideo = data.videos && selectedStatus ? data.videos[selectedStatus].cards.findIndex((v) => v.id == selectedVideoId) : -1
 </script>
 
 <svelte:head>
@@ -55,7 +57,7 @@
 	<meta content="Footape - Workflow" property="twitter:title" />
 </svelte:head>
 
-<div>
+<div class="relative">
 	<h1 class="text-3xl font-bold mb-8">Workflow</h1>
 	<div class="overflow-auto h-[calc(100vh-150px)]">
 		<div class="grid sticky top-0 grid-cols-7 gap-5 w-max z-10">
@@ -80,7 +82,7 @@
 					on:dragover|preventDefault={() => true}
 				>
 					<Step
-						onSelectVideo={(videoIndex) => selectVideo(videoIndex, index)}
+						onSelectVideo={(videoId) => selectVideo(videoId, index)}
 						id={index}
 						{...step}
 					/>
@@ -98,26 +100,8 @@
 	{/if}
 </div>
 
-<style global>
+<style>
 	.hovering {
 		@apply border-accent rounded-lg transition-all duration-200 ease-in-out;
-	}
-
-	::-webkit-scrollbar {
-		@apply w-3 h-3;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-		@apply bg-base-300 rounded-full;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		@apply bg-primary rounded-full transition-all duration-300 ease-in-out hover:bg-primary-focus;
-	}
-
-	::-webkit-scrollbar-corner {
-		@apply hidden;
 	}
 </style>

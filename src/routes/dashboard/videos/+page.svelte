@@ -64,7 +64,7 @@
 		</div>
 	</div>
 {/if}
-<div class="flex flex-col">
+<div class="flex flex-col relative">
 	<div class="flex justify-between mb-12">
 		<h1 class="text-3xl font-bold">Videos</h1>
 		{#if checkPermission($page.data.fullUser?.permissions, Section.Videos, Action.Add, $page.data.fullUser?.position)}

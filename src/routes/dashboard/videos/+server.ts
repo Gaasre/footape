@@ -34,29 +34,30 @@ export const DELETE = (async ({ locals, url }) => {
     if (!locals.session?.user) throw error(401);
     const id = url.searchParams.get('id')
 
-    const { error: queryError, data } = await supabase
+    const { error: queryErrorDelete } = await supabase
         .from('video')
-        .select('*')
+        .delete()
         .eq('id', id)
-        .single<Video>()
 
-    if (!data) throw error(401)
-
-    try {
-        await emptyS3Directory('footape', data.channelId + '/' + data.id)
-
-        const { error: queryErrorDelete } = await supabase
-            .from('video')
-            .delete()
-            .eq('id', id)
-
-        if (queryErrorDelete) {
-            return new Response(JSON.stringify(fail(422)));
-        }
-    } catch (err) {
-        console.log(err)
+    if (queryErrorDelete) {
         return new Response(JSON.stringify(fail(422)));
     }
+
+    // try {
+    //     await emptyS3Directory('footape', data.channelId + '/' + data.id)
+
+    //     const { error: queryErrorDelete } = await supabase
+    //         .from('video')
+    //         .delete()
+    //         .eq('id', id)
+
+    //     if (queryErrorDelete) {
+    //         return new Response(JSON.stringify(fail(422)));
+    //     }
+    // } catch (err) {
+    //     console.log(err)
+    //     return new Response(JSON.stringify(fail(422)));
+    // }
 
     return new Response(JSON.stringify({ success: true }))
 }) satisfies RequestHandler;
