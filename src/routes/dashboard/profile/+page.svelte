@@ -2,6 +2,7 @@
 	import { applyAction, enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { subscribe } from 'svelte/internal';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -40,21 +41,27 @@
 				{$page.data.fullUser?.subscription} subscription
 			</p>
 			{#if $page.data.fullUser?.position == 'Owner'}
-				<form
-					method="POST"
-					action={`?/portal`}
-					class="space-y-4"
-					use:enhance={({ form }) => {
-						return async ({ result, update }) => {
-							if (result.type === 'error') {
-								await applyAction(result);
-							}
-							update({ reset: false });
-						};
-					}}
-				>
-					<button class="btn btn-ghost">Manage subscription</button>
-				</form>
+				{#if $page.data.fullUser?.subscription.toLowerCase() == 'starter'}
+					<div>
+						<a href="/pricing" class="btn btn-error">Upgrade</a>
+					</div>
+				{:else}
+					<form
+						method="POST"
+						action={`?/portal`}
+						class="space-y-4"
+						use:enhance={({ form }) => {
+							return async ({ result, update }) => {
+								if (result.type === 'error') {
+									await applyAction(result);
+								}
+								update({ reset: false });
+							};
+						}}
+					>
+						<button class="btn btn-secondary">Manage subscription</button>
+					</form>
+				{/if}
 			{/if}
 		</div>
 	</div>
@@ -64,14 +71,14 @@
 			action={`?/editUser`}
 			class="space-y-4"
 			use:enhance={({ form }) => {
-				loading = true
+				loading = true;
 				return async ({ result, update }) => {
 					if (result.type === 'success') {
 						console.log(result);
 					} else if (result.type === 'error') {
 						await applyAction(result);
 					}
-					loading = false
+					loading = false;
 					update({ reset: false });
 				};
 			}}
@@ -113,7 +120,7 @@
 				/>
 			</div>
 			<div>
-				<button class:loading={loading} class="btn btn-primary">Submit</button>
+				<button class:loading class="btn btn-primary">Submit</button>
 			</div>
 		</form>
 	</div>

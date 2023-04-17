@@ -109,7 +109,11 @@
 					>
 				</p>
 			</div>
-			{#if $page.data.fullUser?.position == 'Owner'}
+			{#if $page.data.session}
+				{#if $page.data.fullUser?.position == 'Owner'}
+					<a href="/login" class="btn btn-primary w-full">Get Started</a>
+				{/if}
+			{:else}
 				<a href="/login" class="btn btn-primary w-full">Get Started</a>
 			{/if}
 		</div>
@@ -165,9 +169,34 @@
 		<span><b class="text-base-content">Chat</b> support</span>
 	</p> -->
 					</div>
-					{#if $page.data.fullUser?.position == 'Owner'}
-						{#if pricingPlan.name.toLowerCase() != ($page.data.fullUser?.subscription ?? '').toLowerCase()}
-							{#if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
+					{#if $page.data.session}
+						{#if $page.data.fullUser?.position == 'Owner'}
+							{#if pricingPlan.name.toLowerCase() != ($page.data.fullUser?.subscription ?? '').toLowerCase()}
+								{#if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
+									<form
+										method="POST"
+										action={`/dashboard/profile?/portal`}
+										class="space-y-4"
+										use:enhance={() => {
+											return async ({ result, update }) => {
+												update({ reset: false });
+											};
+										}}
+									>
+										<button class={`btn btn-primary w-full`}>Change subscription</button>
+									</form>
+								{:else}
+									<button
+										on:click={() =>
+											checkout(
+												plan ? pricingPlan.annualPriceId : pricingPlan.monthlyPriceId,
+												pricingPlan.hasTrial
+											)}
+										class="btn btn-primary w-full"
+										>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
+									>
+								{/if}
+							{:else if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
 								<form
 									method="POST"
 									action={`/dashboard/profile?/portal`}
@@ -178,33 +207,12 @@
 										};
 									}}
 								>
-									<button class={`btn btn-primary w-full`}>Change subscription</button>
+									<button class="btn btn-primary w-full">Manage</button>
 								</form>
-							{:else}
-								<button
-									on:click={() =>
-										checkout(
-											plan ? pricingPlan.annualPriceId : pricingPlan.monthlyPriceId,
-											pricingPlan.hasTrial
-										)}
-									class="btn btn-primary w-full"
-									>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
-								>
 							{/if}
-						{:else if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
-							<form
-								method="POST"
-								action={`/dashboard/profile?/portal`}
-								class="space-y-4"
-								use:enhance={() => {
-									return async ({ result, update }) => {
-										update({ reset: false });
-									};
-								}}
-							>
-								<button class="btn btn-primary w-full">Manage</button>
-							</form>
 						{/if}
+					{:else}
+						<a href="/login" class="btn btn-primary w-full">Get Started</a>
 					{/if}
 				</div>
 			</div>
