@@ -77,8 +77,8 @@
 
 	<div class="flex gap-10 justify-center sm:flex-row flex-col items-center">
 		<div
-			class='border-base-200 border-2
-			} px-10 py-8 w-[340px] mx-auto sm:mx-0 rounded-md bg-base-100'
+			class="border-base-200 border-2
+			} px-10 py-8 w-[340px] mx-auto sm:mx-0 rounded-md bg-base-100"
 		>
 			<div>
 				<h2 class="text-2xl text-base-content mb-2">Starter</h2>
@@ -99,8 +99,7 @@
 				</p>
 				<p class="flex gap-4">
 					<i class="fi fi-br-star text-base-content mt-0.5" />
-					<span><b class="text-base-content font-semibold">5</b> team members</span
-					>
+					<span><b class="text-base-content font-semibold">5</b> team members</span>
 				</p>
 				<p class="flex gap-4">
 					<i class="fi fi-br-star text-base-content mt-0.5" />
@@ -168,7 +167,7 @@
 					</div>
 					{#if $page.data.fullUser?.position == 'Owner'}
 						{#if pricingPlan.name.toLowerCase() != ($page.data.fullUser?.subscription ?? '').toLowerCase()}
-							{#if $page.data.fullUser?.subscription}
+							{#if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
 								<form
 									method="POST"
 									action={`/dashboard/profile?/portal`}
@@ -192,7 +191,7 @@
 									>{pricingPlan.hasTrial ? 'Start your 7 days trial' : 'Get Started'}</button
 								>
 							{/if}
-						{:else}
+						{:else if $page.data.fullUser?.subscription.toLowerCase() != 'starter'}
 							<form
 								method="POST"
 								action={`/dashboard/profile?/portal`}
