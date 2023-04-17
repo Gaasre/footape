@@ -79,7 +79,7 @@
 
 	/* Handle */
 	:global(::-webkit-scrollbar-thumb) {
-		@apply bg-primary rounded-full transition-all duration-300 ease-in-out hover:bg-primary-focus;
+		@apply bg-[#169e6c] rounded-full transition-all duration-300 ease-in-out hover:bg-[#127e56];
 	}
 
 	:global(::-webkit-scrollbar-corner) {
