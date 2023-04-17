@@ -7,7 +7,10 @@
 	import { theme } from '$lib/stores';
 	import { page } from '$app/stores';
 
-	import Analytics from '$lib/analytics.svelte';
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+	
+	inject({ mode: dev ? 'development' : 'production' });
 
 	let currentTheme: string;
 
@@ -52,8 +55,6 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 </svelte:head>
 
-<Analytics />
-
 <div data-theme={currentTheme}>
 	<slot />
 </div>
@@ -67,7 +68,7 @@
 		font-family: 'Quicksand', sans-serif;
 		@apply scroll-smooth;
 	}
-	
+
 	:global(::-webkit-scrollbar) {
 		@apply w-3 h-3;
 	}
