@@ -7,10 +7,9 @@
 	import { theme } from '$lib/stores';
 	import { page } from '$app/stores';
 
-	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-	
-	inject({ mode: dev ? 'development' : 'production' });
+
+	inject({ mode: 'production' });
 
 	let currentTheme: string;
 
