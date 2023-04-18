@@ -76,13 +76,14 @@ export const actions = ({
         const channelId = formData.get('channel')
         const title = formData.get('title')
         const notes = formData.get('notes')
+        const youtubeVideoLink = formData.get('youtubeVideoLink')
 
         const id = url.searchParams.get('id')
 
         const { error: dbError } = await supabase
             .from('video')
             .update({
-                channelId, title, notes
+                channelId, title, notes, youtubeVideoLink
             }).eq('id', id)
 
         if (dbError) {

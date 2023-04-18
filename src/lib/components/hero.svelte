@@ -35,7 +35,13 @@
 	}
 </script>
 
-<section class="relative">
+<section
+	class="relative"
+	use:inview={{ unobserveOnEnter: true }}
+	on:change={({ detail }) => {
+		isInView = detail.inView;
+	}}
+>
 	<Header {isConnected} />
 	<div class="sm:mb-32 mb-20 relative z-10 mt-36">
 		<p class="font-bold text-4xl sm:text-5xl text-center mb-4">
@@ -63,13 +69,7 @@
 			<img src="Sheets.png" class="h-10" alt="" />
 		</div>
 	</div>
-	<div
-		class="relative w-full sm:w-1/2 sm:px-0 px-4 mx-auto"
-		use:inview={{ unobserveOnEnter: true }}
-		on:change={({ detail }) => {
-			isInView = detail.inView;
-		}}
-	>
+	<div class="relative w-full sm:w-1/2 sm:px-0 px-4 mx-auto">
 		{#if isInView}
 			<div
 				in:fly={{ y: 100, duration: 1000 }}

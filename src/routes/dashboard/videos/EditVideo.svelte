@@ -94,6 +94,19 @@
 
 				<div class="form-control w-full">
 					<label class="label">
+						<span class="label-text">Youtube link</span>
+					</label>
+					<input
+						type="text"
+						name="youtubeVideoLink"
+						placeholder="Youtube link"
+						class="input input-sm w-full input-bordered"
+						bind:value={video.youtubeVideoLink}
+					/>
+				</div>
+
+				<div class="form-control w-full">
+					<label class="label">
 						<span class="label-text">Notes</span>
 					</label>
 					<textarea
