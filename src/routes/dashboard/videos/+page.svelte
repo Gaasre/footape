@@ -60,7 +60,7 @@
 			<div>
 				<span> You have reached the videos limit of your plan </span>
 			</div>
-			<button class="btn btn-ghost">Upgrade now</button>
+			<a href="/pricing" class="btn btn-ghost">Upgrade now</a>
 		</div>
 	</div>
 {/if}
