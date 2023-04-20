@@ -31,8 +31,9 @@
 					<li><a class="btn btn-ghost" href="/blog">Blog</a></li>
 				</ul>
 			</div>
-			<a class="btn btn-ghost" href="/">
-				<img src="/logo.png" width="128" class="sm:w-32 w-24" alt="Logo" />
+			<a class="btn btn-ghost gap-4" href="/">
+				<img src="/logo.png" height="64" class="w-8" alt="Logo" />
+				<p class="sm:block hidden font-semibold text-lg text-primary">Foo<b class="text-primary font-bold">tape</b></p>
 			</a>
 		</div>
 		<div class="navbar-center hidden lg:flex">

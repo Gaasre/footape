@@ -95,8 +95,8 @@
 {/if}
 
 <div class="text-center my-4">
-	<a class="btn btn-ghost" href="/">
-		<img src="/logo.png" width="120" alt="Logo" />
+	<a class="btn btn-ghost gap-4" href="/">
+		<img src="/logo.png" height="64" class="w-8" alt="Logo" />
 	</a>
 </div>
 <ul class="bg-base-200 menu menu-compact flex flex-col px-1 p-0 w-52 mt-10">

@@ -14,8 +14,8 @@
 
 <div class="navbar bg-base-100">
 	<div class="flex-1">
-		<a class="btn btn-ghost" href="/">
-			<img src="/logo.png" width="120" alt="Logo" />
+		<a class="btn btn-ghost gap-4" href="/">
+			<img src="/logo.png" height="64" class="w-8" alt="Logo" />
 		</a>
 	</div>
 	<div class="flex-none gap-4">
